@@ -6,6 +6,32 @@ body {
   line-height: 1.6;
 }
 
+.main-nav {
+  background-color: #111;
+  padding: 1rem;
+  text-align: center;
+}
+
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  gap: 2rem;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: #ff4f00;
+}
+
 header {
   background: #FF4F00;
   color: white;
