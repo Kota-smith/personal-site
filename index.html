@@ -12,7 +12,7 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -29,6 +29,22 @@
   <section>
     <h2>☕ Coffee Blog</h2>
     <p>Thoughts on brews, beans, and beyond.</p>
+  </section>
+  
+  <section id="contact">
+    <h2>📬 Contact</h2>
+    <form action="mailto:youremail@example.com" method="POST" enctype="text/plain">
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" /><br />
+
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" /><br />
+
+      <label for="message">Message:</label><br />
+      <textarea id="message" name="message"></textarea><br />
+
+      <button type="submit">Send</button>
+    </form>
   </section>
 </body>
 </html>
