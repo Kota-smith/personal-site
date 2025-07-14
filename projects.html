@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-   <nav class="main-nav">
+  <nav class="main-nav">
   <div class="nav-toggle" id="navToggle">☰</div>
   <ul id="navMenu">
     <li><a href="index.html">Home</a></li>
@@ -20,19 +20,39 @@
     <p>Just a page showing what I'm tinkering with</p>
   </header>
 
+ <section class="project-video">
+  <h2>🎧 Visual Concept</h2>
+  <p>A looping animation inspired by sound, motion, and minimal design.</p>
+  <video autoplay muted loop playsinline>
+    <source src="media/Rotating_Headphones.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+<section>
+  <h2>🎬 Project Preview</h2>
+  <video controls width="100%" poster="thumbnail.jpg">
+    <source src="media/Rotating_Headphones.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</section>
+
   <section>
     <h2>☕ Latest Posts</h2>
     <p>Coming soon...</p>
   </section>
 
-  <script>
-  const toggle = document.getElementById("navToggle");
-  const menu = document.getElementById("navMenu");
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("navToggle");
+      const menu = document.getElementById("navMenu");
 
-  toggle.addEventListener("click", () => {
-    menu.classList.toggle("show");
-  });
-</script>
-
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("show");
+        });
+      }
+    });
+  </script>
 </body>
 </html>
