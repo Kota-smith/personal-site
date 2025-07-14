@@ -8,14 +8,14 @@
 </head>
 <body>
   <header>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+   <nav class="main-nav">
+  <div class="nav-toggle" id="navToggle">☰</div>
+  <ul id="navMenu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</nav>
     <h1>Projects</h1>
     <p>Just a page showing what I'm tinkering with</p>
   </header>
@@ -24,5 +24,15 @@
     <h2>☕ Latest Posts</h2>
     <p>Coming soon...</p>
   </section>
+
+  <script>
+  const toggle = document.getElementById("navToggle");
+  const menu = document.getElementById("navMenu");
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("show");
+  });
+</script>
+
 </body>
 </html>
