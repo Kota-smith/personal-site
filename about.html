@@ -8,21 +8,22 @@
 </head>
 <body>
   <header>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <nav class="main-nav">
+  <div class="nav-toggle" id="navToggle">☰</div>
+  <ul id="navMenu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</nav>
+
     <h1>About Me</h1>
     <p>A little more about the mind behind the mixes, dashboards, and daily grind.</p>
   </header>
 
   <section>
     <h2>🧠 Who I Am</h2>
-    <p>Hey, I'm Kota. I've worked in tech, made lattes for the masses, and now I'm building my digital playground from scratch. I'm part creative, part chaos coordinator. Whether it's designing Notion templates for tattoo artists, spinning house tracks, or cooking up something wild — I like to make stuff that sticks.</p>
+    <p>Hey, I'm Kota. I've worked in tech, made lattes for the masses, and now I'm building my digital playground from scratch. Part creative, part chaos coordinator. Whether it's building something from scratch, spinning house tracks, or cooking up something wild — I like to make stuff that sticks.</p>
   </section>
 
   <section>
@@ -38,5 +39,34 @@
       <li>My brain runs on Notion dashboards, side hustle ideas, and black sesame syrup — not necessarily in that order.</li>
     </ul>
   </section>
-  </html>
+  
+  <section id="contact">
+    <h2>📬 Contact</h2>
+    <form action="mailto:youremail@example.com" method="POST" enctype="text/plain">
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" /><br />
+
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" /><br />
+
+      <label for="message">Message:</label><br />
+      <textarea id="message" name="message"></textarea><br />
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("navToggle");
+      const menu = document.getElementById("navMenu");
+
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("show");
+        });
+      }
+    });
+  </script>
 </body>
+</html>

@@ -8,15 +8,14 @@
 </head>
 <body>
   <header>
-  <nav class="main-nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-  
+    <nav class="main-nav">
+      <div class="nav-toggle" id="navToggle">☰</div>
+      <ul id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
     <h1>Hey, I'm Kota and on the web👋</h1>
     <p>DJ • Coffee Nerd • Creative Soul</p>
   </header>
@@ -30,21 +29,23 @@
     <h2>☕ Coffee Blog</h2>
     <p>Thoughts on brews, beans, and beyond.</p>
   </section>
-  
-  <section id="contact">
-    <h2>📬 Contact</h2>
-    <form action="mailto:youremail@example.com" method="POST" enctype="text/plain">
-      <label for="name">Name:</label><br />
-      <input type="text" id="name" name="name" /><br />
 
-      <label for="email">Email:</label><br />
-      <input type="email" id="email" name="email" /><br />
-
-      <label for="message">Message:</label><br />
-      <textarea id="message" name="message"></textarea><br />
-
-      <button type="submit">Send</button>
-    </form>
+  <section id="about">
+    <h2>🧠 About Me</h2>
+    <p>I'm Kota — a DJ, coffee nerd, and creative soul who's always scheming the next side hustle or building something on the web.</p>
   </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("navToggle");
+      const menu = document.getElementById("navMenu");
+
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("show");
+        });
+      }
+    });
+  </script>
 </body>
 </html>
