@@ -1,61 +1,89 @@
-/* ====== Base Styles ====== */
+/* === COLOR PALETTE === */
+:root {
+  --color-orange: #F05219;
+  --color-charcoal: #12130F;
+  --color-cream: #FFFFE8;
+  --color-putty: #D6D3C3;
+  --color-olive: #776B5D;
+}
+
 
 body {
-  font-family: Arial, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: system-ui, sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background-color: #fff;
-  color: #222;
 }
 
-header {
-  background-color: #FF4F00;
-  color: hsl(0, 100%, 98%);
-  padding: 2rem;
+a {
+  color: var(--color-orange);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-olive);
+  text-decoration: underline;
+}
+
+header, footer {
+  background-color: #FFF8D8;
   text-align: center;
-}
-
-h1, h2 {
-  margin: 0 0 1rem;
-}
-
-p {
-  max-width: 700px;
-  margin: 0 auto 1.5rem;
-  padding: 0 1rem;
+  padding: 2rem;
+  border-bottom: 1px solid var(--color-putty);
 }
 
 section {
   padding: 3rem 2rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-putty);
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+h1, h2, h3 {
+  color: var(--color-charcoal);
 }
 
-/* ====== Navigation ====== */
-
-.main-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 0;
-  padding: 1rem 0;
-  background-color: #f4f4f4;
-}
-
-.main-nav a {
-  text-decoration: none;
-  color: #333;
+button {
+  background-color: var(--color-orange);
+  color: var(--color-cream);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
   font-weight: bold;
+  cursor: pointer;
 }
 
-.main-nav a:hover {
-  color: #FF4F00;
+button:hover {
+  background-color: var(--color-olive);
 }
+
+.nav-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+    text-align: right;
+  }
+
+  .main-nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #f4f4f4;
+    padding: 1rem;
+    margin-top: 0;
+  }
+
+  .main-nav ul.show {
+    display: flex;
+  }
+}
+
 
 /* ====== Forms ====== */
 
