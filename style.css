@@ -8,6 +8,7 @@
 }
 
 
+/* === Base Layout and Typography === */
 body {
   background-color: var(--color-cream);
   color: var(--color-charcoal);
@@ -17,6 +18,8 @@ body {
   line-height: 1.6;
 }
 
+
+/* === Link Styling === */
 a {
   color: var(--color-orange);
   text-decoration: none;
@@ -27,6 +30,8 @@ a:hover {
   text-decoration: underline;
 }
 
+
+/* === Header and Footer === */
 header, footer {
   background-color: #FFF8D8;
   text-align: center;
@@ -34,15 +39,21 @@ header, footer {
   border-bottom: 1px solid var(--color-putty);
 }
 
+
+/* === Page Sections === */
 section {
   padding: 3rem 2rem;
   border-bottom: 1px solid var(--color-putty);
 }
 
+
+/* === Headings === */
 h1, h2, h3 {
   color: var(--color-charcoal);
 }
 
+
+/* === Buttons === */
 button {
   background-color: var(--color-orange);
   color: var(--color-cream);
@@ -57,6 +68,8 @@ button:hover {
   background-color: var(--color-olive);
 }
 
+
+/* === Mobile Nav Toggle === */
 .nav-toggle {
   display: none;
   font-size: 2rem;
@@ -64,6 +77,8 @@ button:hover {
   padding: 1rem;
 }
 
+
+/* === Responsive Styles (Mobile) === */
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
@@ -85,8 +100,7 @@ button:hover {
 }
 
 
-/* ====== Forms ====== */
-
+/* === Form Styling === */
 form {
   max-width: 600px;
   margin: 0 auto;
@@ -166,6 +180,7 @@ button:hover {
   }
 }
 
+/* === Project Video Section === */
 .project-video {
   max-width: 800px;
   margin: 2rem auto;
@@ -179,4 +194,13 @@ button:hover {
   border-radius: 10px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   margin-top: 1rem;
+}
+
+
+/* === Footer Styles: Copyright Section === */
+footer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #888;
+  padding: 2rem 0;
 }
