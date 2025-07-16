@@ -9,6 +9,12 @@ html {
   scroll-behavior: smooth;
 }
 
+h2 {
+  color: #F05219;
+  font-size: 2.5rem; /* adjust as needed */
+  margin-bottom: 1rem;
+}
+
 body {
   font-family: sans-serif;
   background: #FFFFE8;
