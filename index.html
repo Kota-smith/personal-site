@@ -3,39 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kota's Site</title>
+  <title>Kota Smith | Creative Technologist</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <nav class="main-nav">
-      <div class="nav-toggle" id="navToggle">☰</div>
-      <ul id="navMenu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-    <h1>Hey, I'm Kota and on the web👋</h1>
-    <p>DJ • Coffee Nerd • Creative Soul</p>
-  </header>
+
+  <!-- === Navbar === -->
+  <nav class="navbar">
+    <a href="#hero">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- === Section: Hero === -->
+  <section id="hero" class="section hero">
+    <h1>Hey, I'm Kota.</h1>
+    <p>Creative. Caffeinated. Curious as hell.</p>
+    <a href="#contact" class="hire-me-button">Hire Me</a>
+  </section>
+
+  <!-- === Section: Projects === -->
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <p>Just a snippet showing what I'm tinkering with</p>
+    
+  <!--Section: Project tiles-->
+
+ <section class="project-video">
+  <h3>🎧 Visual Concept</h3>
+  <p>A looping animation inspired by sound, motion, and minimal design.</p>
+  <video class="project-media" autoplay muted loop playsinline>
+    <source src="media/Rotating_Headphones.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+ <section class="project-video">
+  <h2>💧 Visual Concept</h2>
+  <p>A looping animation inspired by sound, motion, and minimal design.</p>
+  <video class="project-media" autoplay muted loop playsinline>
+    <source src="media/liquidsimulation.mov.mov" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+
+
 
   <section>
-    <h2>🎶 Latest Mix</h2>
+    <h2>☕ Latest Posts</h2>
     <p>Coming soon...</p>
   </section>
 
-  <section>
-    <h2>☕ Coffee Blog</h2>
-    <p>Thoughts on brews, beans, and beyond.</p>
-  </section>
-
-  <section id="about">
-    <h2>🧠 About Me</h2>
-    <p>I'm Kota — a DJ, coffee nerd, and creative soul who's always scheming the next side hustle or building something on the web.</p>
-  </section>
-
-  <script>
+   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const toggle = document.getElementById("navToggle");
       const menu = document.getElementById("navMenu");
@@ -48,19 +69,32 @@
     });
   </script>
 
+    <!-- You can drop in cards, links, or a grid later -->
+  </section>
 
+  <!-- === Section: About === -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>I build creative tools and experiences — from festival templates to interactive dashboards.</p>
+  </section>
 
-  <!-- === Footer: Copyright Notice === -->
+  <!-- === Section: Contact === -->
+  <section id="contact" class="section">
+    <h2>Let's Connect</h2>
+    <p>Hit me up at <a href="mailto:hey@kotasmith.com">hey@kotasmith.com</a></p>
+  </section>
+
+  <!-- === Footer: Copyright === -->
   <footer>
     <p id="copyright"></p>
   </footer>
 
-  <!-- === Script: Auto-Updating Copyright Year === -->
+  <!-- === Script: Auto-Updating Copyright === -->
   <script>
     const year = new Date().getFullYear();
     document.getElementById("copyright").innerHTML =
       `© ${year} Kota Smith — fueled by caffeine & curiosity. All rights reserved.`;
   </script>
-</body>
+
 </body>
 </html>
