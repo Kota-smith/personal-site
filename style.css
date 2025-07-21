@@ -23,7 +23,7 @@ body {
 }
 
 .section {
-  padding: 6rem 1rem;
+  padding: 6rem 1rem; 
   max-width: 800px;
   margin: 0 auto;
 }
@@ -88,6 +88,69 @@ body {
   display: block;
   margin: 1rem auto;
 }
+
+
+/* === Styling: Contact Section Only === */
+#contact form {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+#contact form p {
+  margin-bottom: 1.2rem;
+}
+
+#contact form label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #12130F;
+}
+
+#contact form input,
+#contact form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border 0.3s ease;
+}
+
+#contact form input:focus,
+#contact form textarea:focus {
+  outline: none;
+  border-color: #F05219;
+}
+
+#contact form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+#contact form button[type="submit"] {
+  margin-top: 1rem;
+  background-color: #F05219;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#contact form button[type="submit"]:hover {
+  background-color: #d84315;
+}
+
 
 /* === Footer === */
 footer {
