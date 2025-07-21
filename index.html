@@ -16,7 +16,7 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- === Section: Hero === -->
+  <!-- === Section: Hero === --> 
   <section id="hero" class="section hero">
     <h1>Hey, I'm Kota.</h1>
     <p>Creative. Caffeinated. Curious as hell.</p>
@@ -89,7 +89,35 @@
   <!-- === Section: Contact === -->
   <section id="contact" class="section">
     <h2>Let's Connect</h2>
-    <p>Hit me up at <a href="mailto:hey@kotasmith.com">hey@kotasmith.com</a></p>
+
+    <!-- 📝 This is a working contact form powered by Netlify -->
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      
+      <!-- 🚫 Hidden field to catch bots -->
+      <p style="display: none;">
+        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+      </p>
+
+      <!-- 🧑 User's name input -->
+      <p>
+        <label>Your Name: <input type="text" name="name" required /></label>
+      </p>
+
+      <!-- 📧 User's email input -->
+      <p>
+        <label>Your Email: <input type="email" name="email" required /></label>
+      </p>
+
+      <!-- 💬 User's message input -->
+      <p>
+        <label>Message: <textarea name="message" required></textarea></label>
+      </p>
+
+      <!-- 📩 Submit button -->
+      <p>
+        <button type="submit">Send</button>
+      </p>
+    </form>
   </section>
 
   <!-- === Footer: Copyright === -->
