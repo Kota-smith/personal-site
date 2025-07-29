@@ -23,6 +23,29 @@ body {
   margin: 0 auto;
 }
 
+.hero {
+  text-align: center;
+  margin-top: 100px; /* or whatever fits your spacing */
+}
+
+.hero h1,
+.hero .tagline {
+  color: #FFFEE8;
+  margin: 0.5em 0;
+}
+
+.highlight {
+  color: #F05219;
+  text-shadow: 0 0 15px #F05219;
+}
+
+.tagline {
+  font-size: 1.5em;
+  color: #FFFEE8;
+  text-shadow: 0 0 10px #F05219;
+}
+
+
 /* === Section Heading Fade-In Animation === */
 @keyframes fade-in-up {
   from {
