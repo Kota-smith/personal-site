@@ -9,11 +9,6 @@ html {
   scroll-behavior: smooth;
 }
 
-h2 {
-  color: #F05219;
-  font-size: 2.5rem; /* adjust as needed */
-  margin-bottom: 1rem;
-}
 
 body {
   font-family: sans-serif;
@@ -168,4 +163,12 @@ footer {
   font-size: 0.875rem;
   color: #888;
   padding: 2rem 0;
+}
+.section h2 span {
+  color: #FAF2DB;
+  text-shadow:
+    0 0 8px #FF4F00,
+    0 0 16px #FF4F00,
+    0 0 24px #FF4F00,
+    0 0 32px #FF4F00;
 }
