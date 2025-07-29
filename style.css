@@ -53,30 +53,21 @@ body {
 /* === Hero Section === */
 .hero {
   text-align: center;
-  background-color: #F05219;
-  color: #fff;
+  background-color: #12130F; /* Match site background for seamless blend */
+  color: #FAF2DB;
   padding-top: 8rem;
   padding-bottom: 8rem;
 }
 
-/* === Hire Me Button === */
-.hire-me-button {
-  margin-top: 2rem;
-  display: inline-block;
-  background-color: #12130F;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem;
-  text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* === Glowing Text for Name === */
+.glow-name {
+  color: #FAF2DB;
+  text-shadow:
+    0 0 4px #FF4F00,
+    0 0 8px #FF4F00,
+    0 0 16px #FF4F00,
+    0 0 24px #FF4F00;
 }
-
-.hire-me-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
 
 /* === Project tiles === */
 
@@ -90,72 +81,45 @@ body {
 }
 
 
-/* === Styling: Contact Section Only === */
-#contact form {
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-#contact form p {
-  margin-bottom: 1.2rem;
-}
-
-#contact form label {
-  display: block;
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-  color: #12130F;
-}
-
-#contact form input,
-#contact form textarea {
-  width: 100%;
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-sizing: border-box;
-  transition: border 0.3s ease;
-}
-
-#contact form input:focus,
-#contact form textarea:focus {
-  outline: none;
-  border-color: #F05219;
-}
-
-#contact form textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-#contact form button[type="submit"] {
-  margin-top: 1rem;
-  background-color: #F05219;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#contact form button[type="submit"]:hover {
-  background-color: #d84315;
-}
-
-
 /* === Footer === */
 footer {
   text-align: center;
   font-size: 0.875rem;
   color: #888;
   padding: 2rem 0;
+}
+
+/* === Animated Glowing Pulse for Name === */
+@keyframes pulse-glow {
+  0% {
+    text-shadow:
+      0 0 4px #FF4F00,
+      0 0 8px #FF4F00,
+      0 0 16px #FF4F00,
+      0 0 24px #FF4F00;
+  }
+  50% {
+    text-shadow:
+      0 0 6px #FF4F00,
+      0 0 12px #FF4F00,
+      0 0 20px #FF4F00,
+      0 0 28px #FF4F00;
+  }
+  100% {
+    text-shadow:
+      0 0 4px #FF4F00,
+      0 0 8px #FF4F00,
+      0 0 16px #FF4F00,
+      0 0 24px #FF4F00;
+  }
+}
+
+.glow-name {
+  color: #FAF2DB;
+  text-shadow:
+    0 0 4px #FF4F00,
+    0 0 8px #FF4F00,
+    0 0 16px #FF4F00,
+    0 0 24px #FF4F00;
+  animation: pulse-glow 2s infinite ease-in-out;
 }
