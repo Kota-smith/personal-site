@@ -35,16 +35,13 @@ body {
   }
 }
 
+/* === Section Headings (e.g. Projects, About Me, etc.) === */
 .section h2 {
   font-size: 2.2rem;
-  color: #FAF2DB;
-  text-shadow:
-    0 0 8px #FF4F00,
-    0 0 16px #FF4F00,
-    0 0 24px #FF4F00,
-    0 0 32px #FF4F00;
+  color: inherit;
   animation: fade-in-up 1s ease-in-out both;
   margin-bottom: 2rem;
+  text-shadow: none;
 }
 
 /* === Additional Spacing for Readability === */
@@ -89,31 +86,6 @@ body {
 }
 
 /* === Glowing Text for Name === */
-/* === Animated Glowing Pulse for Name (Upgraded Glow) === */
-@keyframes pulse-glow {
-  0% {
-    text-shadow:
-      0 0 8px #FF4F00,
-      0 0 16px #FF4F00,
-      0 0 24px #FF4F00,
-      0 0 32px #FF4F00;
-  }
-  50% {
-    text-shadow:
-      0 0 12px #FF4F00,
-      0 0 24px #FF4F00,
-      0 0 36px #FF4F00,
-      0 0 48px #FF4F00;
-  }
-  100% {
-    text-shadow:
-      0 0 8px #FF4F00,
-      0 0 16px #FF4F00,
-      0 0 24px #FF4F00,
-      0 0 32px #FF4F00;
-  }
-}
-
 .glow-name {
   color: #FAF2DB;
   text-shadow:
@@ -121,18 +93,10 @@ body {
     0 0 20px #FF4F00,
     0 0 30px #FF4F00,
     0 0 40px #FF4F00;
-  animation: pulse-glow 1.8s infinite ease-in-out;
+  animation: breathe-glow 2.4s ease-in-out infinite;
   font-size: 2.4rem;
 }
 
-/* === Section Headings (e.g. Projects) === */
-/* === Section Headings (e.g. Projects, About Me, etc.) === */
-.section h2 {
-  font-size: 2.2rem;
-  color: inherit;
-  animation: fade-in-up 1s ease-in-out both;
-  margin-bottom: 2rem;
-}
 
 /* === Project tiles === */
 
@@ -168,4 +132,34 @@ footer {
     0 0 16px #FF4F00,
     0 0 24px #FF4F00,
     0 0 32px #FF4F00;
+}
+.intro-text {
+  font-weight: 300;
+  color: #FAF2DB;
+  font-size: 2rem;
+}
+
+
+.highlight-name {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #FAF2DB; /* Cream color to match the glow line below */
+  text-shadow:
+    0 0 12px #FF4F00,
+    0 0 24px #FF4F00,
+    0 0 36px #FF4F00;
+}
+.@keyframes breathe-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 12px #FF4F00,
+      0 0 24px #FF4F00,
+      0 0 36px #FF4F00;
+  }
+  50% {
+    text-shadow:
+      0 0 18px #FF4F00,
+      0 0 36px #FF4F00,
+      0 0 54px #FF4F00;
+  }
 }
