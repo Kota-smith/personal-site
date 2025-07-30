@@ -234,3 +234,39 @@ footer {
   text-decoration: none;
   position: relative;
 }
+
+/* Test <-This is how you comment for css-> */ 
+
+
+/* === Projects Grid Layout === */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-tile {
+  background-color: #1A1B16;
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 79, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-tile:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 10px #FF4F00,
+    0 0 20px #FF4F00,
+    0 0 30px #FF4F00;
+}
+
+.project-tile video {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
