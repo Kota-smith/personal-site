@@ -3,70 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About - Kota</title>
+  <title>About Me | Kota Smith</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-  <nav class="main-nav">
-  <div class="nav-toggle" id="navToggle">☰</div>
-  <ul id="navMenu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="about.html">About</a></li>
-  </ul>
-</nav>
 
-    <h1>About Me</h1>
-    <p>A little more about the mind behind the mixes, dashboards, and daily grind.</p>
-  </header>
+  <!-- === Navbar === -->
+  <nav class="navbar">
+    <a href="index.html#hero">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+  </nav>
 
-  <section>
-    <h2>🧠 Who I Am</h2>
-    <p>Hey, I'm Kota. I've worked in tech, made lattes for the masses, and now I'm building my digital playground from scratch. Part creative, part chaos coordinator. Whether it's building something from scratch, spinning house tracks, or cooking up something wild — I like to make stuff that sticks.</p>
-  </section>
+  <!-- === Section: About === -->
+  <section id="about" class="section">
+    <h2>🤔 <span>Who I Am</span></h2>
+    <p>Hey, I'm Kota. I've worked in tech, made shaken espressos for the masses, and now I'm building my digital playground from scratch. Part creative, part chaos coordinator. Whether it's building something from scratch, spinning house tracks, or cooking up something wild — I like to make stuff that sticks.</p>
 
-  <section>
-    <h2>🎧 Where I'm Headed</h2>
-    <p>I'm in the middle of transitioning into a more digital-forward career. That means learning, building, testing — and probably breaking stuff along the way. I'm into remote work, creative tech, music, and making side hustles feel like main quests.</p>
-  </section>
-
-  <section>
-    <h2>🧐 Bonus Fun Facts</h2>
+    <h2>🎧 <span>Where I'm Headed</span></h2>
+    <p>I'm in the middle of transitioning into a more digital-forward career. That means learning, building, testing — and probably breaking stuff along the way. Like this website. I'm into remote work, creative tech, music, and making side hustles feel like main quests.</p>
+  
+    <h2>🪩 <span>Bonus Fun Facts</span></h2>
     <ul>
       <li>I've stayed up till 2AM mixing house tracks on a tiny controller, chasing the perfect drop — and somehow made it work on spotty Wi-Fi.</li>
       <li>My shopping sprees usually happen at grocery stores or specialty markets. I get way too excited about sauces and single-origin snacks.</li>
       <li>My brain runs on Notion dashboards, side hustle ideas, and black sesame syrup — not necessarily in that order.</li>
     </ul>
   </section>
-  
-  <section id="contact">
-    <h2>📬 Contact</h2>
-    <form action="mailto:youremail@example.com" method="POST" enctype="text/plain">
-      <label for="name">Name:</label><br />
-      <input type="text" id="name" name="name" /><br />
 
-      <label for="email">Email:</label><br />
-      <input type="email" id="email" name="email" /><br />
-
-      <label for="message">Message:</label><br />
-      <textarea id="message" name="message"></textarea><br />
-
-      <button type="submit">Send</button>
-    </form>
-  </section>
-
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const toggle = document.getElementById("navToggle");
-      const menu = document.getElementById("navMenu");
-
-      if (toggle && menu) {
-        toggle.addEventListener("click", () => {
-          menu.classList.toggle("show");
-        });
-      }
-    });
-  </script>
 </body>
 </html>
