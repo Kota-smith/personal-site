@@ -37,9 +37,14 @@ body {
   margin: 0 auto;
 }
 
+/* === Hero Section === */
 .hero {
   text-align: center;
-  margin-top: 100px; /* or whatever fits your spacing */
+  background-color: #12130F; /* Match site background for seamless blend */
+  color: #FAF2DB;
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
+  margin-top: 60px; /* Reduced from 100px */
 }
 
 .hero h1,
@@ -54,9 +59,55 @@ body {
 }
 
 .tagline {
-  font-size: 1.5em;
+  font-size: 1.3em; /* Changed from 1.5em */
   color: #FFFEE8;
   text-shadow: 0 0 10px #F05219;
+}
+
+/* === Hero tagline line-by-line fadeInUp animation === */
+.tagline span {
+  display: block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in-up 0.6s ease-out forwards;
+  margin-bottom: 0.2em;
+}
+.tagline span:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.tagline span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.tagline span:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+/* === Hero Heading Line-by-Line Cascading Animation === */
+.fade-line {
+  display: block;
+  opacity: 0.8;
+  animation: float-cascade 3s ease-in-out infinite;
+}
+
+.delay-1 {
+  animation-delay: 0s;
+}
+.delay-2 {
+  animation-delay: 0.3s;
+}
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes float-cascade {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
 }
 
 
@@ -113,8 +164,8 @@ body {
   text-align: center;
   background-color: #12130F; /* Match site background for seamless blend */
   color: #FAF2DB;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
 }
 
 /* === Hero Section Title === */
