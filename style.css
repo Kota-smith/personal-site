@@ -286,3 +286,18 @@ footer {
     0 0 30px #FF4F00;
   transition: box-shadow 0.3s ease-in-out;
 }
+
+
+/* === Homepage Tile Row (Projects + About) === */
+.tile-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 1rem;
+}
+
+.tile-row .video-link {
+  flex: 1 1 400px;
+  max-width: 45%;
+}
