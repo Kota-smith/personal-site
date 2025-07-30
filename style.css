@@ -194,6 +194,9 @@ footer {
 }
 
 .video-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   width: 100%;
   max-width: 960px;
@@ -218,14 +221,8 @@ footer {
 }
 
 .projects-title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: max-content;
-  text-align: center;
   font-size: 3rem;
-  color: #FAF2DB;
+  color: #FAF2DB !important;
   text-shadow: 0 0 12px #FF4F00, 0 0 24px #FF4F00;
   font-weight: 700;
   z-index: 2;
