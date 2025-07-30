@@ -2,6 +2,12 @@
 /* === Navbar === */
 /* === Hero Section === */
 /* === Projects Page === */
+
+.projects-heading {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fade-in-up 1s ease-in-out both;
+}
 /* === About Page === */
 
 
@@ -300,4 +306,30 @@ footer {
 .tile-row .video-link {
   flex: 1 1 400px;
   max-width: 45%;
+}
+.about-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.about-row .about-photo {
+  flex: 0 0 200px;
+  max-width: 200px;
+  border-radius: 12px;
+  box-shadow:
+    0 0 10px #FF4F00,
+    0 0 20px #FF4F00,
+    0 0 30px #FF4F00;
+}
+
+.about-row p {
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.section-block {
+  margin-bottom: 5rem;
 }
