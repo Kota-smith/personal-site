@@ -172,7 +172,7 @@ footer {
     0 0 24px #FF4F00,
     0 0 36px #FF4F00;
 }
-.@keyframes breathe-glow {
+@keyframes breathe-glow {
   0%, 100% {
     text-shadow:
       0 0 12px #FF4F00,
@@ -185,4 +185,47 @@ footer {
       0 0 36px #FF4F00,
       0 0 54px #FF4F00;
   }
+}
+
+/* === Projects Video Banner === */
+.projects-section {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.video-banner {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 2rem;
+  aspect-ratio: 16 / 5;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(255, 79, 0, 0.4);
+}
+
+.video-banner video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.projects-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: #FAF2DB;
+  text-shadow: 0 0 12px #FF4F00, 0 0 24px #FF4F00;
+  font-weight: 700;
+  z-index: 2;
+  pointer-events: none;
 }
