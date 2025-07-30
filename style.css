@@ -371,9 +371,9 @@ footer {
   max-width: 200px;
   border-radius: 12px;
   box-shadow:
+    0 0 5px #FF4F00,
     0 0 10px #FF4F00,
-    0 0 20px #FF4F00,
-    0 0 30px #FF4F00;
+    0 0 15px #FF4F00;
 }
 
 .about-row p {
