@@ -109,6 +109,17 @@ body {
   font-size: 3.2rem;
 }
 
+/* === Subtle Glow for Hero Intro === */
+.hero-intro {
+  color: #FAF2DB;
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 4px #F05219,
+    0 0 6px #F05219;
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+
 /* === Glowing Text for Name === */
 .glow-orange {
   text-shadow:
@@ -170,6 +181,7 @@ footer {
   color: #FAF2DB; /* Cream color to match the glow line below */
   @extend .glow-orange;
 }
+
 
 /* === Projects Video Banner === */
 .projects-section {
@@ -421,6 +433,19 @@ footer {
     0 0 18px #FF2E63,
     0 0 24px #FF2E63;
   animation: hero-bounce 2.4s ease-in-out infinite, flicker-neon 4s linear infinite;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 2.4rem;
+  display: inline-block;
+}
+
+/* === Subtle Glow Trait Lines (No Animation, Less Intense) === */
+.glow-subtle {
+  color: #FAF2DB;
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 4px #F05219,
+    0 0 6px #F05219;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 2.4rem;
