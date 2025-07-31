@@ -374,7 +374,7 @@ footer {
 
 .neon-link {
   font-family: 'Monoton', cursive;
-  font-size: 3.6rem;
+  font-size: 2.2rem; /* Reduced from 3.6rem to differentiate from Kota */
   color: #FAF2DB;
   text-shadow:
     0 0 2px #F05219,
@@ -386,12 +386,43 @@ footer {
   display: block;
   margin: 1.5rem auto;
   text-decoration: none;
+  position: relative;
+  transition: transform 0.3s ease;
 }
 
-/* === Hero Heading Sway Animation === */
+.neon-link:hover {
+  transform: scale(1.05);
+  text-shadow:
+    0 0 4px #F05219,
+    0 0 8px #F05219,
+    0 0 16px #F05219,
+    0 0 24px #FF2E63,
+    0 0 32px #FF2E63;
+}
+
+.neon-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 100%;
+  background: #F05219;
+  box-shadow: 0 0 6px #F05219, 0 0 12px #F05219;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.neon-link:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* === Hero Heading Bounce Animation === */
 .hero-heading {
   display: inline-block;
-  animation: hero-sway 6s ease-in-out infinite;
+  animation: hero-bounce 2.4s ease-in-out infinite;
 }
 
 /* === Keyframes Grouped Together === */
@@ -467,10 +498,12 @@ footer {
   }
 }
 
-@keyframes hero-sway {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(0.3deg); }
-  50% { transform: rotate(0deg); }
-  75% { transform: rotate(-0.3deg); }
-  100% { transform: rotate(0deg); }
+
+@keyframes hero-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
