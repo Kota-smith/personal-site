@@ -25,7 +25,7 @@ html {
 
 
 body {
-  font-family: sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: #12130F;
   color: #FAF2DB;
   line-height: 1.6;
@@ -45,6 +45,7 @@ body {
   padding-top: 0.5rem;
   padding-bottom: 2rem;
   margin-top: 60px; /* Reduced from 100px */
+  z-index: 1;
 }
 
 .hero h1,
@@ -198,13 +199,6 @@ body {
 }
 
 /* === Project Tiles Hover Glow === */
-.project-media:hover {
-  box-shadow:
-    0 0 10px #FF4F00,
-    0 0 20px #FF4F00,
-    0 0 30px #FF4F00;
-  transition: box-shadow 0.3s ease-in-out;
-}
 
 /* === Footer === */
 footer {
@@ -270,6 +264,28 @@ footer {
   overflow: hidden;
   border-radius: 16px;
   box-shadow: 0 0 40px rgba(255, 79, 0, 0.4);
+  /* Animation removed from container */
+  z-index: 1;
+}
+
+.video-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  pointer-events: none;
+  transform: scale(1.12);
+  box-shadow:
+    0 0 24px #F05219,
+    0 0 48px #F05219,
+    0 0 72px #F05219,
+    0 0 96px #FF2E63,
+    0 0 120px #FF2E63;
+  animation: flicker-neon 4s linear infinite, neon-pulse 3s ease-in-out infinite;
+  z-index: 0;
 }
 
 .video-banner video {
@@ -325,9 +341,11 @@ footer {
 .project-tile:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 0 10px #FF4F00,
-    0 0 20px #FF4F00,
-    0 0 30px #FF4F00;
+    0 0 2px #F05219,
+    0 0 6px #F05219,
+    0 0 12px #F05219,
+    0 0 18px #FF2E63,
+    0 0 24px #FF2E63;
 }
 
 .project-tile video {
@@ -336,51 +354,84 @@ footer {
   margin-bottom: 1rem;
 }
 
-.video-link:hover .video-banner {
-  box-shadow:
-    0 0 10px #FF4F00,
-    0 0 20px #FF4F00,
-    0 0 30px #FF4F00;
-  transition: box-shadow 0.3s ease-in-out;
-}
 
 
-/* === Homepage Tile Row (Projects + About) === */
-.tile-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  padding: 4rem 1rem;
-}
-
-.tile-row .video-link {
-  flex: 1 1 400px;
-  max-width: 45%;
-}
-.about-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.about-row .about-photo {
-  flex: 0 0 200px;
-  max-width: 200px;
-  border-radius: 12px;
-  box-shadow:
-    0 0 10px #FF4F00,
-    0 0 20px #FF4F00,
-    0 0 30px #FF4F00;
-}
-
-.about-row p {
-  flex: 1;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
 .section-block {
   margin-bottom: 5rem;
+}
+.neon-kota {
+  font-family: 'Monoton', cursive;
+  font-size: 3.6rem;
+  color: #FAF2DB;
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 6px #F05219,
+    0 0 12px #F05219,
+    0 0 18px #FF2E63,
+    0 0 24px #FF2E63;
+  animation: flicker-neon 4s linear infinite, neon-pulse 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes flicker-neon {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 58%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 6px #F05219,
+      0 0 12px #F05219,
+      0 0 18px #FF2E63,
+      0 0 24px #FF2E63;
+  }
+  20%, 22%, 24%, 55%, 57% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 6px #F05219,
+      0 0 12px #F05219,
+      0 0 18px #FF2E63,
+      0 0 24px #FF2E63;
+  }
+  50% {
+    text-shadow:
+      0 0 4px #F05219,
+      0 0 8px #F05219,
+      0 0 16px #F05219,
+      0 0 24px #FF2E63,
+      0 0 32px #FF2E63;
+  }
+}
+/* === Hero Heading Sway Animation === */
+.hero-heading {
+  display: inline-block;
+  animation: hero-sway 6s ease-in-out infinite;
+}
+
+@keyframes hero-sway {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(0.3deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-0.3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.neon-link {
+  font-family: 'Monoton', cursive;
+  font-size: 3.6rem;
+  color: #FAF2DB;
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 6px #F05219,
+    0 0 12px #F05219,
+    0 0 18px #FF2E63,
+    0 0 24px #FF2E63;
+  animation: flicker-neon 4s linear infinite, neon-pulse 3s ease-in-out infinite;
+  display: inline-block;
+  text-decoration: none;
 }
