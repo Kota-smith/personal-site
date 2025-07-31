@@ -414,7 +414,10 @@ footer {
   font-weight: 600;
   opacity: 0;
   text-shadow: none;
-  animation: flickerFadeIn 1.5s ease forwards;
+  display: block;
+  animation:
+    fadeInSubheading 2.2s ease forwards,
+    flickerLoop 8s ease-in-out infinite;
 }
 
 .hero-subheading p:nth-child(1) {
@@ -549,4 +552,131 @@ footer {
       0 0 2px #F05219;
   }
 }
+@keyframes fadeInSubheading {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    text-shadow: none;
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow: none;
+  }
+  40%, 42%, 44% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+  41%, 43%, 45% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 6px #F05219,
+      0 0 12px #F05219;
+  }
+  60%, 62% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+  61%, 63% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 6px #F05219,
+      0 0 12px #F05219;
+  }
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 6px #F05219,
+      0 0 12px #F05219;
+  }
+}
 /* === SVG Signature Animation === */
+
+.flicker-delay-1 {
+  animation-delay: 2.8s;
+}
+
+.flicker-delay-2 {
+  animation-delay: 3.2s;
+}
+
+.flicker-delay-3 {
+  animation-delay: 3.6s;
+}
+
+@keyframes subtleFlickerLoop {
+  0%, 100% {
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 6px #F05219,
+      0 0 12px #F05219;
+  }
+  50% {
+    text-shadow:
+      0 0 1px #F05219,
+      0 0 3px #F05219,
+      0 0 6px #F05219;
+  }
+}
+
+.glow-bounce {
+  color: #FAF2DB;
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 6px #F05219,
+    0 0 12px #F05219,
+    0 0 18px #FF2E63,
+    0 0 24px #FF2E63;
+  animation:
+    fadeInSubheading 2.2s ease forwards,
+    subtleFlickerLoop 6s ease-in-out infinite;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 2.4rem;
+  display: inline-block;
+}
+@keyframes flickerLoop {
+  0%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 6px #F05219,
+      0 0 12px #F05219;
+  }
+  10% {
+    opacity: 0.8;
+    text-shadow: none;
+  }
+  12% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 6px #F05219,
+      0 0 12px #F05219;
+  }
+  20% {
+    opacity: 0.5;
+    text-shadow: none;
+  }
+  22% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 6px #F05219,
+      0 0 12px #F05219;
+  }
+  35% {
+    opacity: 0.7;
+    text-shadow: none;
+  }
+  38% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 6px #F05219,
+      0 0 12px #F05219;
+  }
+}
