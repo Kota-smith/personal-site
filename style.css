@@ -111,13 +111,32 @@ body {
 
 /* === Subtle Glow for Hero Intro === */
 .hero-intro {
+  /* color: #FAF2DB; */
+  /* text-shadow:
+    0 0 2px #F05219,
+    0 0 6px #F05219,
+    0 0 12px #F05219,
+    0 0 18px #FF2E63,
+    0 0 24px #FF2E63; */
+  font-size: 3.2rem;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  display: inline-block;
+}
+
+/* === Glow for Hero Intro Span (matches .glow-bounce) === */
+.hero-intro span {
   color: #FAF2DB;
   text-shadow:
     0 0 2px #F05219,
-    0 0 4px #F05219,
-    0 0 6px #F05219;
-  font-size: 3.2rem;
-  font-weight: 600;
+    0 0 6px #F05219,
+    0 0 12px #F05219,
+    0 0 18px #FF2E63,
+    0 0 24px #FF2E63;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 2.4rem;
+  display: inline-block;
 }
 
 /* === Glowing Text for Name === */
