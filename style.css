@@ -51,7 +51,7 @@ body {
 .hero h1,
 .hero .tagline {
   color: #FFFEE8;
-  margin: 0.5em 0;
+  margin: 0.25em 0;
 }
 
 .highlight {
@@ -71,7 +71,7 @@ body {
   opacity: 0;
   transform: translateY(20px);
   animation: fade-in-up 0.6s ease-out forwards;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.05em;
 }
 .tagline span:nth-child(1) {
   animation-delay: 0.2s;
@@ -372,39 +372,23 @@ footer {
   margin-top: 3rem;
 }
 
+
 .neon-link {
-  font-family: 'Monoton', cursive;
-  font-size: 2.2rem; /* Reduced from 3.6rem to differentiate from Kota */
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
   color: #FAF2DB;
-  text-shadow:
-    0 0 2px #F05219,
-    0 0 6px #F05219,
-    0 0 12px #F05219,
-    0 0 18px #FF2E63,
-    0 0 24px #FF2E63;
-  animation: flicker-neon 4s linear infinite, neon-pulse 3s ease-in-out infinite;
-  display: block;
-  margin: 1.5rem auto;
   text-decoration: none;
   position: relative;
-  transition: transform 0.3s ease;
-}
-
-.neon-link:hover {
-  transform: scale(1.05);
-  text-shadow:
-    0 0 4px #F05219,
-    0 0 8px #F05219,
-    0 0 16px #F05219,
-    0 0 24px #FF2E63,
-    0 0 32px #FF2E63;
+  display: inline-block;
+  margin: 1.5rem auto;
+  font-weight: bold;
 }
 
 .neon-link::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -6px;
+  bottom: -5px;
   height: 2px;
   width: 100%;
   background: #F05219;
@@ -416,6 +400,16 @@ footer {
 
 .neon-link:hover::after {
   transform: scaleX(1);
+}
+
+.neon-link:hover {
+  color: #FAF2DB;
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 6px #F05219,
+    0 0 12px #F05219,
+    0 0 18px #FF2E63,
+    0 0 24px #FF2E63;
 }
 
 
