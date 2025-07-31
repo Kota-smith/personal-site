@@ -100,29 +100,11 @@ body {
   animation-delay: 0.6s;
 }
 
-@keyframes float-cascade {
-  0%, 100% {
-    opacity: 0.8;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-10px);
-  }
-}
-
 
 /* === Section Heading Fade-In Animation === */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+
+
+
 
 /* === Section Headings (e.g. Projects, About Me, etc.) === */
 .section h2 {
@@ -154,10 +136,35 @@ body {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+  position: relative;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 2px;
+  width: 100%;
+  background: #F05219;
+  box-shadow: 0 0 6px #F05219, 0 0 12px #F05219;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.navbar a:hover::after {
+  transform: scaleX(1);
 }
 
 .navbar a:hover {
-  color: #F05219;
+  color: #FAF2DB;
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 6px #F05219,
+    0 0 12px #F05219,
+    0 0 18px #FF2E63,
+    0 0 24px #FF2E63;
 }
 
 /* === Hero Section === */
@@ -230,20 +237,6 @@ footer {
     0 0 12px #FF4F00,
     0 0 24px #FF4F00,
     0 0 36px #FF4F00;
-}
-@keyframes breathe-glow {
-  0%, 100% {
-    text-shadow:
-      0 0 12px #FF4F00,
-      0 0 24px #FF4F00,
-      0 0 36px #FF4F00;
-  }
-  50% {
-    text-shadow:
-      0 0 18px #FF4F00,
-      0 0 36px #FF4F00,
-      0 0 54px #FF4F00;
-  }
 }
 
 /* === Projects Video Banner === */
@@ -373,6 +366,72 @@ footer {
   display: inline-block;
 }
 
+/* === Neon Navigation Links Centering and Spacing === */
+.neon-nav-links {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.neon-link {
+  font-family: 'Monoton', cursive;
+  font-size: 3.6rem;
+  color: #FAF2DB;
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 6px #F05219,
+    0 0 12px #F05219,
+    0 0 18px #FF2E63,
+    0 0 24px #FF2E63;
+  animation: flicker-neon 4s linear infinite, neon-pulse 3s ease-in-out infinite;
+  display: block;
+  margin: 1.5rem auto;
+  text-decoration: none;
+}
+
+/* === Hero Heading Sway Animation === */
+.hero-heading {
+  display: inline-block;
+  animation: hero-sway 6s ease-in-out infinite;
+}
+
+/* === Keyframes Grouped Together === */
+@keyframes float-cascade {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes breathe-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 12px #FF4F00,
+      0 0 24px #FF4F00,
+      0 0 36px #FF4F00;
+  }
+  50% {
+    text-shadow:
+      0 0 18px #FF4F00,
+      0 0 36px #FF4F00,
+      0 0 54px #FF4F00;
+  }
+}
+
 @keyframes flicker-neon {
   0%, 19%, 21%, 23%, 25%, 54%, 56%, 58%, 100% {
     opacity: 1;
@@ -407,11 +466,6 @@ footer {
       0 0 32px #FF2E63;
   }
 }
-/* === Hero Heading Sway Animation === */
-.hero-heading {
-  display: inline-block;
-  animation: hero-sway 6s ease-in-out infinite;
-}
 
 @keyframes hero-sway {
   0% { transform: rotate(0deg); }
@@ -419,19 +473,4 @@ footer {
   50% { transform: rotate(0deg); }
   75% { transform: rotate(-0.3deg); }
   100% { transform: rotate(0deg); }
-}
-
-.neon-link {
-  font-family: 'Monoton', cursive;
-  font-size: 3.6rem;
-  color: #FAF2DB;
-  text-shadow:
-    0 0 2px #F05219,
-    0 0 6px #F05219,
-    0 0 12px #F05219,
-    0 0 18px #FF2E63,
-    0 0 24px #FF2E63;
-  animation: flicker-neon 4s linear infinite, neon-pulse 3s ease-in-out infinite;
-  display: inline-block;
-  text-decoration: none;
 }
