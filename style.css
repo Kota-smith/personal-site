@@ -54,6 +54,17 @@ nav {
   background-color: #12130F;
   z-index: 10;
 }
+
+
+
+
+
+.hero-subheading {
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+
 /* === Projects Page === */
 
 .projects-heading {
@@ -324,8 +335,6 @@ footer {
     0 0 18px #FF2E63,
     0 0 24px #FF2E63;
   display: inline-block;
-  /* Ensure there's no animation */
-  animation: none;
 }
 
 /* === Neon Navigation Links Centering and Spacing === */
@@ -380,6 +389,39 @@ footer {
 .hero-heading {
   display: inline-block;
   animation: none;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #FAF2DB;
+  text-shadow:none
+}
+
+.handwritten-name {
+  font-family: 'Ephesis', cursive;
+  font-size: 3.6rem;
+  color: #FAF2DB;
+  opacity: 0;
+  animation: fadeInName 2s ease-out 1.2s forwards;
+  margin-top: 0.25rem;
+}
+
+.hero-subheading p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  color: #FAF2DB;
+  font-weight: 600;
+  opacity: 0;
+  text-shadow: none;
+  animation: flickerFadeIn 1.5s ease forwards;
+}
+
+.hero-subheading p:nth-child(1) {
+  animation-delay: 2.8s;
+}
+.hero-subheading p:nth-child(2) {
+  animation-delay: 3.2s;
+}
+.hero-subheading p:nth-child(3) {
+  animation-delay: 3.6s;
 }
 
 /* === Keyframes Grouped Together === */
@@ -470,4 +512,68 @@ footer {
   font-weight: bold;
   font-size: 2.4rem;
   display: inline-block;
+}
+/* === About Me Image Sizing === */
+.about-img {
+  max-width: 600px;
+  width: 100%;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+@keyframes fadeInName {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes flickerFadeIn {
+  0% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 4px #F05219;
+  }
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 1px #F05219,
+      0 0 2px #F05219;
+  }
+}
+/* === SVG Signature Animation === */
+.handwritten-name {
+  font-family: 'Ephesis', cursive;
+  font-size: 3.6rem;
+  color: #FAF2DB;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  margin-top: 3rem;
+}
+
+.handwritten-name::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #12130F;
+  animation: revealHandwriting 2.5s ease-out forwards;
+  transform-origin: left;
+}
+
+@keyframes revealHandwriting {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
 }
