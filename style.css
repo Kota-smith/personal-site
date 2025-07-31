@@ -399,9 +399,12 @@ footer {
   font-family: 'Ephesis', cursive;
   font-size: 3.6rem;
   color: #FAF2DB;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
   opacity: 0;
   animation: fadeInName 2s ease-out 1.2s forwards;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
 }
 
 .hero-subheading p {
@@ -547,33 +550,3 @@ footer {
   }
 }
 /* === SVG Signature Animation === */
-.handwritten-name {
-  font-family: 'Ephesis', cursive;
-  font-size: 3.6rem;
-  color: #FAF2DB;
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  margin-top: 3rem;
-}
-
-.handwritten-name::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #12130F;
-  animation: revealHandwriting 2.5s ease-out forwards;
-  transform-origin: left;
-}
-
-@keyframes revealHandwriting {
-  0% {
-    width: 100%;
-  }
-  100% {
-    width: 0%;
-  }
-}
