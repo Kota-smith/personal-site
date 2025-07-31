@@ -1,6 +1,58 @@
 /* === Global Styles === */
 /* === Navbar === */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+nav a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  color: #FAF2DB;
+  text-decoration: none;
+  position: relative;
+  margin: 0 1rem;
+  font-weight: 600;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: #F05219;
+  box-shadow: 0 0 4px #F05219, 0 0 8px #F05219;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: #FAF2DB;
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 6px #F05219,
+    0 0 12px #F05219,
+    0 0 18px #FF2E63,
+    0 0 24px #FF2E63;
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+}
 /* === Hero Section === */
+nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #12130F;
+  z-index: 10;
+}
 /* === Projects Page === */
 
 .projects-heading {
@@ -18,6 +70,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* a {
+  color: inherit;
+  text-decoration: none;
+} */
 
 html {
   scroll-behavior: smooth;
@@ -48,140 +105,19 @@ body {
   z-index: 1;
 }
 
-.hero h1,
-.hero .tagline {
-  color: #FFFEE8;
-  margin: 0.25em 0;
-}
-
-.highlight {
-  color: #F05219;
-  text-shadow: 0 0 15px #F05219;
-}
-
-.tagline {
-  font-size: 1.3em; /* Changed from 1.5em */
-  color: #FFFEE8;
-  text-shadow: 0 0 10px #F05219;
-}
-
-/* === Hero tagline line-by-line fadeInUp animation === */
-.tagline span {
-  display: block;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fade-in-up 0.6s ease-out forwards;
-  margin-bottom: 0.05em;
-}
-.tagline span:nth-child(1) {
-  animation-delay: 0.2s;
-}
-.tagline span:nth-child(2) {
-  animation-delay: 0.5s;
-}
-.tagline span:nth-child(3) {
-  animation-delay: 0.8s;
-}
-
-/* === Hero Heading Line-by-Line Cascading Animation === */
-.fade-line {
-  display: block;
-  opacity: 0.8;
-  animation: float-cascade 3s ease-in-out infinite;
-}
-
-.delay-1 {
-  animation-delay: 0s;
-}
-.delay-2 {
-  animation-delay: 0.3s;
-}
-.delay-3 {
-  animation-delay: 0.6s;
-}
-
-
-/* === Section Heading Fade-In Animation === */
-
-
-
-
-/* === Section Headings (e.g. Projects, About Me, etc.) === */
-.section h2 {
-  font-size: 2.2rem;
-  color: inherit;
-  animation: fade-in-up 1s ease-in-out both;
-  margin-bottom: 2rem;
-  text-shadow: none;
-}
-
-/* === Additional Spacing for Readability === */
-.section p {
-  margin-bottom: 1.5rem;
-}
-
-/* === Navbar === */
-.navbar {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem;
-  background-color: #12130F;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  position: relative;
-}
-
-.navbar a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  height: 2px;
-  width: 100%;
-  background: #F05219;
-  box-shadow: 0 0 6px #F05219, 0 0 12px #F05219;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.navbar a:hover::after {
-  transform: scaleX(1);
-}
-
-.navbar a:hover {
-  color: #FAF2DB;
-  text-shadow:
-    0 0 2px #F05219,
-    0 0 6px #F05219,
-    0 0 12px #F05219,
-    0 0 18px #FF2E63,
-    0 0 24px #FF2E63;
-}
-
-/* === Hero Section === */
-.hero {
-  text-align: center;
-  background-color: #12130F; /* Match site background for seamless blend */
-  color: #FAF2DB;
-  padding-top: 0.5rem;
-  padding-bottom: 2rem;
-}
-
-/* === Hero Section Title === */
 .hero h1 {
   font-size: 3.2rem;
 }
 
 /* === Glowing Text for Name === */
+.glow-orange {
+  text-shadow:
+    0 0 10px #FF4F00,
+    0 0 20px #FF4F00,
+    0 0 30px #FF4F00,
+    0 0 40px #FF4F00;
+}
+
 .glow-name {
   color: #FAF2DB;
   text-shadow:
@@ -189,7 +125,6 @@ body {
     0 0 20px #FF4F00,
     0 0 30px #FF4F00,
     0 0 40px #FF4F00;
-  animation: breathe-glow 2.4s ease-in-out infinite;
   font-size: 2.4rem;
 }
 
@@ -233,10 +168,7 @@ footer {
   font-size: 2.8rem;
   font-weight: 700;
   color: #FAF2DB; /* Cream color to match the glow line below */
-  text-shadow:
-    0 0 12px #FF4F00,
-    0 0 24px #FF4F00,
-    0 0 36px #FF4F00;
+  @extend .glow-orange;
 }
 
 /* === Projects Video Banner === */
@@ -309,9 +241,6 @@ footer {
   position: relative;
 }
 
-/* Test <-This is how you comment for css-> */ 
-
-
 /* === Projects Grid Layout === */
 .project-grid {
   display: grid;
@@ -362,8 +291,9 @@ footer {
     0 0 12px #F05219,
     0 0 18px #FF2E63,
     0 0 24px #FF2E63;
-  animation: flicker-neon 4s linear infinite, neon-pulse 3s ease-in-out infinite;
   display: inline-block;
+  /* Ensure there's no animation */
+  animation: none;
 }
 
 /* === Neon Navigation Links Centering and Spacing === */
@@ -382,6 +312,7 @@ footer {
   display: inline-block;
   margin: 1.5rem auto;
   font-weight: bold;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .neon-link::after {
@@ -416,31 +347,10 @@ footer {
 /* === Hero Heading Bounce Animation === */
 .hero-heading {
   display: inline-block;
-  animation: hero-bounce 2.4s ease-in-out infinite;
+  animation: none;
 }
 
 /* === Keyframes Grouped Together === */
-@keyframes float-cascade {
-  0%, 100% {
-    opacity: 0.8;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 @keyframes breathe-glow {
   0%, 100% {
@@ -500,4 +410,19 @@ footer {
   50% {
     transform: translateY(-8px);
   }
+}
+/* === Glow Bounce Trait Lines === */
+.glow-bounce {
+  color: #FAF2DB;
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 6px #F05219,
+    0 0 12px #F05219,
+    0 0 18px #FF2E63,
+    0 0 24px #FF2E63;
+  animation: hero-bounce 2.4s ease-in-out infinite, flicker-neon 4s linear infinite;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 2.4rem;
+  display: inline-block;
 }
