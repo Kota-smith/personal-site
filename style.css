@@ -418,17 +418,17 @@ footer {
   animation:
     fadeInSubheading 2.2s ease forwards,
     subtleFlickerLoop 6s ease-in-out infinite,
-    randomFlicker 8s infinite;
+    randomFlicker 4s infinite;
 }
 
 .hero-subheading p:nth-child(1) {
-  animation-delay: 2.8s, 6.6s, 10s;
+  animation-delay: 2.8s, 3.8s, 4.6s;
 }
 .hero-subheading p:nth-child(2) {
-  animation-delay: 3.2s, 7.4s, 12s;
+  animation-delay: 3.2s, 4.2s, 5.2s;
 }
 .hero-subheading p:nth-child(3) {
-  animation-delay: 3.6s, 8.2s, 14s;
+  animation-delay: 3.6s, 4.6s, 5.8s;
 }
 
 /* === Keyframes Grouped Together === */
