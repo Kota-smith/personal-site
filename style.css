@@ -301,10 +301,31 @@ body {
   font-size: 3.2rem;
 }
 
+
+
+
+.flicker-delay-1 {
+  animation-delay: 2s, 3s, 4s; /* Kota */
+}
+
+.flicker-delay-2 {
+  animation-delay: 3s, 4s, 5s; /* Creative mind. */
+}
+
+.flicker-delay-3 {
+  animation-delay: 4s, 5s, 6s; /* Caffeinated soul. */
+}
+
+.flicker-delay-4 {
+  animation-delay: 5s, 6s, 7s; /* Curious as hell. */
+}
+
+
 /* === Subtle Glow for Hero Intro === */
+
 .hero-intro {
-  /* color: #FAF2DB; */
-  /* text-shadow:
+  color: #FAF2DB;
+  text-shadow:
     0 0 2px #F05219,
     0 0 6px #F05219,
     0 0 12px #F05219,
@@ -584,8 +605,8 @@ footer {
   text-shadow: none;
   display: block;
   animation:
-    fadeInSubheading 2.2s ease forwards,
-    subtleFlickerLoop 3s ease-in-out infinite,
+    fadeInSubheading 3s ease forwards,
+    subtleFlickerLoop 5s ease-in-out infinite,
     randomFlicker 4s infinite;
 }
 
@@ -670,12 +691,12 @@ footer {
     0 0 20px #FF4F00,
     0 0 30px #FF4F00;
   animation:
-    fadeInSubheading 2.2s ease forwards,
-    subtleFlickerLoop 6s ease-in-out infinite,
+    fadeInSubheading 2s ease forwards,
+    subtleFlickerLoop 1s ease-in-out infinite,
     randomFlicker 4s infinite;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  font-size: 2.4rem;
+  font-size: 3rem;
   display: inline-block;
 }
 
@@ -768,18 +789,6 @@ footer {
 }
 /* === SVG Signature Animation === */
 
-.flicker-delay-1 {
-  animation-delay: 2.8s, 3.8s, 4.6s;
-}
-
-.flicker-delay-2 {
-  animation-delay: 3.2s;
-}
-
-.flicker-delay-3 {
-  animation-delay: 3.6s;
-}
-
 @keyframes subtleFlickerLoop {
   0%, 100% {
     text-shadow:
@@ -849,8 +858,8 @@ footer {
 }
 .section-heading span {
   animation:
-    fadeInSubheading 2.2s ease forwards,
-    subtleFlickerLoop 6s ease-in-out infinite,
+    fadeInSubheading 1s ease forwards,
+    subtleFlickerLoop 5s ease-in-out infinite,
     randomFlicker 4s infinite;
   text-shadow:
     0 0 2px #F05219,
@@ -864,11 +873,11 @@ footer {
 }
 
 .section-heading span.flicker-delay-1 {
-  animation-delay: 2.8s, 3.8s, 4.6s;
+  animation-delay: 2s, 3s, 4s;
 }
 
 .section-heading span.flicker-delay-2 {
-  animation-delay: 3.2s, 4.2s, 5.2s;
+  animation-delay: 3s, 4s, 5s;
 }
 
 .section-heading span.flicker-delay-3 {
