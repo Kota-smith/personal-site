@@ -417,7 +417,7 @@ footer {
   display: block;
   animation:
     fadeInSubheading 2.2s ease forwards,
-    subtleFlickerLoop 6s ease-in-out infinite,
+    subtleFlickerLoop 3s ease-in-out infinite,
     randomFlicker 4s infinite;
 }
 
@@ -522,8 +522,9 @@ footer {
 }
 /* === About Me Image Sizing === */
 .about-img {
-  max-width: 600px;
+  max-width: 300px;
   width: 100%;
+  height: auto;
   display: block;
   margin: 2rem auto;
   border-radius: 12px;
