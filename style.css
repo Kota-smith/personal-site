@@ -387,24 +387,20 @@ footer {
 
 /* === Hero Heading Bounce Animation === */
 .hero-heading {
-  display: inline-block;
-  animation: none;
-  font-size: 3rem;
-  font-weight: 700;
+  font-family: 'Ephesis', cursive;
+  font-size: 3.6rem;
+  font-weight: 400;
   color: #FAF2DB;
-  text-shadow:none
+  text-align: center;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: reveal-heading 1s ease-out 4.8s forwards;
 }
 
 .handwritten-name {
-  font-family: 'Ephesis', cursive;
-  font-size: 3.6rem;
-  color: #FAF2DB;
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
+  /* If still used separately, ensure it is hidden initially and revealed with .hero-heading */
   opacity: 0;
-  animation: fadeInName 2s ease-out 1.2s forwards;
-  margin-top: 0.5rem;
+  animation: reveal-heading 1s ease-out 4.8s forwards;
 }
 
 .hero-subheading p {
@@ -627,11 +623,10 @@ footer {
 .glow-bounce {
   color: #FAF2DB;
   text-shadow:
-    0 0 2px #F05219,
-    0 0 6px #F05219,
-    0 0 12px #F05219,
-    0 0 18px #FF2E63,
-    0 0 24px #FF2E63;
+    0 0 4px #FF4F00,
+    0 0 10px #FF4F00,
+    0 0 20px #FF4F00,
+    0 0 30px #FF4F00;
   animation:
     fadeInSubheading 2.2s ease forwards,
     subtleFlickerLoop 6s ease-in-out infinite;
@@ -718,4 +713,46 @@ footer {
 
 .section-heading span.flicker-delay-3 {
   animation-delay: 3.6s, 4.6s, 5.8s;
+}
+.hero-icon {
+  width: 100px;
+  height: auto;
+  margin: 0 auto 1rem auto;
+  display: block;
+  animation: flicker-on 4.8s ease-out forwards;
+}
+
+/* @keyframes pulse-glow {
+  0%   { filter: drop-shadow(0 0 2px #FF4F00); }
+  50%  { filter: drop-shadow(0 0 6px #FF4F00); }
+  100% { filter: drop-shadow(0 0 2px #FF4F00); }
+} */
+
+@keyframes flicker-on {
+  0%   { opacity: 0; }
+  10%  { opacity: 0.4; }
+  15%  { opacity: 0.1; }
+  20%  { opacity: 0.5; }
+  25%  { opacity: 0.2; }
+  30%  { opacity: 0.6; }
+  35%  { opacity: 0.3; }
+  40%  { opacity: 0.7; }
+  45%  { opacity: 0.5; }
+  70%  { opacity: 1; }
+  72%  { opacity: 0.3; }
+  74%  { opacity: 0.9; }
+  76%  { opacity: 0.4; }
+  78%  { opacity: 0.95; }
+  80%, 100% { opacity: 1; }
+}
+
+@keyframes reveal-heading {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
