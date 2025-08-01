@@ -23,6 +23,13 @@ nav a {
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
+nav a.active {
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 6px #F05219,
+    0 0 12px #F05219;
+}
+
 nav a::after {
   content: '';
   position: absolute;
@@ -52,7 +59,9 @@ nav a:hover::after {
 }
 
 
-
+nav a.active::after {
+  transform: scaleX(1);
+}
 
 
 .hero-subheading {
@@ -60,6 +69,10 @@ nav a:hover::after {
   margin-top: 1.2rem;
 }
 
+.hero {
+  padding-bottom: 1rem; /* instead of 2rem or more */
+  margin-bottom: 1rem;
+}
 
 /* === Projects Page === */
 
@@ -123,14 +136,13 @@ body {
 }
 
 
-.handwritten-name {
+.hero-intro-combo {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #FAF2DB;
+  text-align: center;
   opacity: 0;
-  animation: reveal-heading 1s ease-out 0.8s forwards;
-}
-
-.highlight-name {
-  opacity: 0;
-  animation: reveal-heading 1s ease-out 1.6s forwards;
+  animation: reveal-heading 1s ease-out 2s forwards;
 }
 
 .hero-subheading p:nth-child(1) {
@@ -277,6 +289,14 @@ body {
   z-index: 1;
 }
 
+@media (max-width: 480px) {
+  .hero-intro-line,
+  .hero-intro-combo,
+  .hero-subheading p {
+    font-size: 2rem;
+  }
+}
+
 .hero h1 {
   font-size: 3.2rem;
 }
@@ -363,18 +383,6 @@ footer {
   font-weight: 300;
   color: #FAF2DB;
   font-size: 2rem;
-}
-
-
-.highlight-name {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #FAF2DB; /* Cream color to match the glow line below */
-  text-shadow:
-    0 0 10px #FF4F00,
-    0 0 20px #FF4F00,
-    0 0 30px #FF4F00,
-    0 0 40px #FF4F00;
 }
 
 
@@ -663,7 +671,8 @@ footer {
     0 0 30px #FF4F00;
   animation:
     fadeInSubheading 2.2s ease forwards,
-    subtleFlickerLoop 6s ease-in-out infinite;
+    subtleFlickerLoop 6s ease-in-out infinite,
+    randomFlicker 4s infinite;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 2.4rem;
@@ -760,7 +769,7 @@ footer {
 /* === SVG Signature Animation === */
 
 .flicker-delay-1 {
-  animation-delay: 2.8s;
+  animation-delay: 2.8s, 3.8s, 4.6s;
 }
 
 .flicker-delay-2 {
@@ -876,12 +885,21 @@ footer {
     transform: translateY(0);
   }
 }
-/* === Hero "Hey" Animation === */
-.hero-hey-im {
-  font-size: 2rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
+
+/* === Hero Intro Lines Reveal Animation === */
+.hero-intro-line {
+  font-size: 2.8rem;
+  font-weight: 700;
   color: #FAF2DB;
+  text-align: center;
   opacity: 0;
-  animation: reveal-heading 1s ease-out 1s forwards;
+  animation: reveal-heading 1s ease-out forwards;
+}
+
+.hero-intro-line:nth-of-type(1) {
+  animation-delay: 1s;
+}
+
+.hero-intro-line:nth-of-type(2) {
+  animation-delay: 2s;
 }
