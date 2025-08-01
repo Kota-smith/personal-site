@@ -692,3 +692,30 @@ footer {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
 }
+.section-heading span {
+  animation:
+    fadeInSubheading 2.2s ease forwards,
+    subtleFlickerLoop 6s ease-in-out infinite,
+    randomFlicker 4s infinite;
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 6px #F05219,
+    0 0 12px #F05219,
+    0 0 18px #FF2E63,
+    0 0 24px #FF2E63;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 2.2rem;
+}
+
+.section-heading span.flicker-delay-1 {
+  animation-delay: 2.8s, 3.8s, 4.6s;
+}
+
+.section-heading span.flicker-delay-2 {
+  animation-delay: 3.2s, 4.2s, 5.2s;
+}
+
+.section-heading span.flicker-delay-3 {
+  animation-delay: 3.6s, 4.6s, 5.8s;
+}
