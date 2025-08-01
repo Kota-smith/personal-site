@@ -1,4 +1,164 @@
 @import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
+/* === Navbar === */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #12130F;
+  z-index: 10;
+}
+nav a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  color: #FAF2DB;
+  text-decoration: none;
+  position: relative;
+  margin: 0 1rem;
+  font-weight: 600;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: #F05219;
+  box-shadow: 0 0 4px #F05219, 0 0 8px #F05219;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: #FAF2DB;
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 6px #F05219,
+    0 0 12px #F05219,
+    0 0 18px #FF2E63,
+    0 0 24px #FF2E63;
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+}
+
+
+
+
+
+.hero-subheading {
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+
+/* === Projects Page === */
+
+.projects-heading {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fade-in-up 1s ease-in-out both;
+}
+/* === About Page === */
+
+
+
+/* === Global Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #12130F;
+  color: #FAF2DB;
+  line-height: 1.6;
+}
+
+.section {
+  padding: 6rem 1rem; 
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero {
+  text-align: center;
+  background-color: #12130F;
+  color: #FAF2DB;
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
+  margin-top: 60px;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+}
+
+/* === Hero Heading Animation === */
+.hero-heading {
+  font-family: 'Poppins', cursive;
+  font-size: 3.6rem;
+  font-weight: 400;
+  color: #FAF2DB;
+  text-align: center;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: reveal-heading 1s ease-out 4.8s forwards;
+}
+
+
+.handwritten-name {
+  opacity: 0;
+  animation: reveal-heading 1s ease-out 0.8s forwards;
+}
+
+.highlight-name {
+  opacity: 0;
+  animation: reveal-heading 1s ease-out 1.6s forwards;
+}
+
+.hero-subheading p:nth-child(1) {
+  animation-delay: 2.4s, 3.4s, 4.2s;
+}
+.hero-subheading p:nth-child(2) {
+  animation-delay: 2.8s, 3.8s, 4.6s;
+}
+.hero-subheading p:nth-child(3) {
+  animation-delay: 3.2s, 4.2s, 5s;
+}
+
+@keyframes reveal-heading {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Leave the rest of your original CSS untouched below this line */
+
+
+
+
 /* === Global Styles === */
 /* === Navbar === */
 nav {
@@ -210,7 +370,11 @@ footer {
   font-size: 2.8rem;
   font-weight: 700;
   color: #FAF2DB; /* Cream color to match the glow line below */
-  @extend .glow-orange;
+  text-shadow:
+    0 0 10px #FF4F00,
+    0 0 20px #FF4F00,
+    0 0 30px #FF4F00,
+    0 0 40px #FF4F00;
 }
 
 
@@ -387,7 +551,7 @@ footer {
 
 /* === Hero Heading Bounce Animation === */
 .hero-heading {
-  font-family: 'Ephesis', cursive;
+  font-family: 'Poppins', cursive;
   font-size: 3.6rem;
   font-weight: 400;
   color: #FAF2DB;
@@ -400,7 +564,7 @@ footer {
 .handwritten-name {
   /* If still used separately, ensure it is hidden initially and revealed with .hero-heading */
   opacity: 0;
-  animation: reveal-heading 1s ease-out 4.8s forwards;
+  animation: reveal-heading 1s ease-out 2s forwards;
 }
 
 .hero-subheading p {
@@ -418,13 +582,13 @@ footer {
 }
 
 .hero-subheading p:nth-child(1) {
-  animation-delay: 2.8s, 3.8s, 4.6s;
+  animation-delay: 3s, 4s, 4.8s;
 }
 .hero-subheading p:nth-child(2) {
-  animation-delay: 3.2s, 4.2s, 5.2s;
+  animation-delay: 3.4s, 4.4s, 5.2s;
 }
 .hero-subheading p:nth-child(3) {
-  animation-delay: 3.6s, 4.6s, 5.8s;
+  animation-delay: 3.8s, 4.8s, 5.6s;
 }
 
 /* === Keyframes Grouped Together === */
@@ -489,15 +653,17 @@ footer {
   }
 }
 /* === Glow Bounce Trait Lines === */
+/* === Glow Bounce Trait Lines === */
 .glow-bounce {
   color: #FAF2DB;
   text-shadow:
-    0 0 2px #F05219,
-    0 0 6px #F05219,
-    0 0 12px #F05219,
-    0 0 18px #FF2E63,
-    0 0 24px #FF2E63;
-  animation: hero-bounce 2.4s ease-in-out infinite, flicker-neon 4s linear infinite;
+    0 0 4px #FF4F00,
+    0 0 10px #FF4F00,
+    0 0 20px #FF4F00,
+    0 0 30px #FF4F00;
+  animation:
+    fadeInSubheading 2.2s ease forwards,
+    subtleFlickerLoop 6s ease-in-out infinite;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 2.4rem;
@@ -620,21 +786,6 @@ footer {
   }
 }
 
-.glow-bounce {
-  color: #FAF2DB;
-  text-shadow:
-    0 0 4px #FF4F00,
-    0 0 10px #FF4F00,
-    0 0 20px #FF4F00,
-    0 0 30px #FF4F00;
-  animation:
-    fadeInSubheading 2.2s ease forwards,
-    subtleFlickerLoop 6s ease-in-out infinite;
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  font-size: 2.4rem;
-  display: inline-block;
-}
 
 @keyframes randomFlicker {
   0%, 95%, 100% {
@@ -714,37 +865,6 @@ footer {
 .section-heading span.flicker-delay-3 {
   animation-delay: 3.6s, 4.6s, 5.8s;
 }
-.hero-icon {
-  width: 100px;
-  height: auto;
-  margin: 0 auto 1rem auto;
-  display: block;
-  animation: flicker-on 4.8s ease-out forwards;
-}
-
-/* @keyframes pulse-glow {
-  0%   { filter: drop-shadow(0 0 2px #FF4F00); }
-  50%  { filter: drop-shadow(0 0 6px #FF4F00); }
-  100% { filter: drop-shadow(0 0 2px #FF4F00); }
-} */
-
-@keyframes flicker-on {
-  0%   { opacity: 0; }
-  10%  { opacity: 0.4; }
-  15%  { opacity: 0.1; }
-  20%  { opacity: 0.5; }
-  25%  { opacity: 0.2; }
-  30%  { opacity: 0.6; }
-  35%  { opacity: 0.3; }
-  40%  { opacity: 0.7; }
-  45%  { opacity: 0.5; }
-  70%  { opacity: 1; }
-  72%  { opacity: 0.3; }
-  74%  { opacity: 0.9; }
-  76%  { opacity: 0.4; }
-  78%  { opacity: 0.95; }
-  80%, 100% { opacity: 1; }
-}
 
 @keyframes reveal-heading {
   from {
@@ -755,4 +875,13 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
+}
+/* === Hero "Hey" Animation === */
+.hero-hey-im {
+  font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: #FAF2DB;
+  opacity: 0;
+  animation: reveal-heading 1s ease-out 1s forwards;
 }
