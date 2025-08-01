@@ -417,17 +417,18 @@ footer {
   display: block;
   animation:
     fadeInSubheading 2.2s ease forwards,
-    subtleFlickerLoop 6s ease-in-out infinite;
+    subtleFlickerLoop 6s ease-in-out infinite,
+    randomFlicker 8s infinite;
 }
 
 .hero-subheading p:nth-child(1) {
-  animation-delay: 2.8s, 6.6s;
+  animation-delay: 2.8s, 6.6s, 10s;
 }
 .hero-subheading p:nth-child(2) {
-  animation-delay: 3.2s, 7.4s;
+  animation-delay: 3.2s, 7.4s, 12s;
 }
 .hero-subheading p:nth-child(3) {
-  animation-delay: 3.6s, 8.2s;
+  animation-delay: 3.6s, 8.2s, 14s;
 }
 
 /* === Keyframes Grouped Together === */
@@ -637,4 +638,25 @@ footer {
   font-weight: bold;
   font-size: 2.4rem;
   display: inline-block;
+}
+
+@keyframes randomFlicker {
+  0%, 95%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 6px #F05219,
+      0 0 12px #F05219;
+  }
+  96%, 98% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+  97%, 99% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 6px #F05219,
+      0 0 12px #F05219;
+  }
 }

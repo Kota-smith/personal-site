@@ -55,5 +55,33 @@
       `© ${year} Kota Smith — fueled by caffeine & curiosity. All rights reserved.`;
   </script>
 
+
+
+
+
+<script>
+  const flickerClasses = ['flicker-line-1', 'flicker-line-2', 'flicker-line-3'];
+
+  function flickerRandomLine() {
+    const targetClass = flickerClasses[Math.floor(Math.random() * flickerClasses.length)];
+    const el = document.querySelector(`.${targetClass}`);
+    
+    if (el) {
+      el.classList.remove('glow-bounce');
+      
+      // Trigger reflow to restart animation
+      void el.offsetWidth;
+      
+      el.classList.add('glow-bounce');
+    }
+
+    // Repeat every 4 to 8 seconds
+    const nextDelay = Math.random() * 4000 + 4000;
+    setTimeout(flickerRandomLine, nextDelay);
+  }
+
+  // Start after initial load animation finishes
+  setTimeout(flickerRandomLine, 5000);
+</script>
 </body>
 </html>
