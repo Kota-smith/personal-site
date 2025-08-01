@@ -661,3 +661,34 @@ footer {
       0 0 12px #F05219;
   }
 }
+/* === Polaroid Style Figure === */
+.polaroid {
+  background: #FAF2DB;
+  padding: 0.5rem 1rem 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: 320px;
+  margin: 2rem auto;
+  text-align: center;
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.polaroid figcaption {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #12130F;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
