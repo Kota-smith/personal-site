@@ -999,3 +999,16 @@ footer {
 .hero-intro-line:nth-of-type(2) {
   animation-delay: 2s;
 }
+
+
+/* === Inline LinkedIn Icon Styling === */
+.linkedin-inline-icon svg {
+  transition: transform 0.2s ease;
+  vertical-align: middle;
+  margin-left: 10px;
+  fill: #FF4F00;
+}
+
+.linkedin-inline-icon:hover svg {
+  transform: scale(1.1);
+}
