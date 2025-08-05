@@ -698,3 +698,30 @@ footer {
 .linkedin-inline-icon:hover svg {
   transform: scale(1.1);
 }
+
+@media (max-width: 480px) {
+  nav a {
+    font-size: 1rem;
+    margin: 0 0.5rem;
+  }
+
+  .hero-heading,
+  .hero-intro-combo,
+  .glow-bounce,
+  .projects-title {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: 4rem 1rem;
+  }
+
+  .video-banner {
+    aspect-ratio: 16 / 9;
+    max-height: 180px;
+  }
+
+  footer {
+    font-size: 1rem;
+  }
+}
