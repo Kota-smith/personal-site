@@ -1,5 +1,90 @@
+
+/* ============================================================
+   1. Import Fonts
+   ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
-/* === Navbar === */
+
+/* ============================================================
+   2. Global Reset & Body Styling
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #12130F;
+  color: #FAF2DB;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   3. Typography & Utility Classes
+   ============================================================ */
+.intro-text {
+  font-weight: 300;
+  color: #FAF2DB;
+  font-size: 2rem;
+}
+.glow-orange {
+  text-shadow:
+    0 0 10px #FF4F00,
+    0 0 20px #FF4F00,
+    0 0 30px #FF4F00,
+    0 0 40px #FF4F00;
+}
+.glow-name {
+  color: #FAF2DB;
+  text-shadow:
+    0 0 10px #FF4F00,
+    0 0 20px #FF4F00,
+    0 0 30px #FF4F00,
+    0 0 40px #FF4F00;
+  font-size: 2.4rem;
+}
+.glow-bounce {
+  color: #FAF2DB;
+  text-shadow:
+    0 0 4px #FF4F00,
+    0 0 10px #FF4F00,
+    0 0 20px #FF4F00,
+    0 0 30px #FF4F00;
+  animation:
+    fadeInSubheading 2s ease forwards,
+    subtleFlickerLoop 1s ease-in-out infinite,
+    randomFlicker 4s infinite;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+  display: inline-block;
+}
+.glow-subtle {
+  color: #FAF2DB;
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 4px #F05219,
+    0 0 6px #F05219;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 2.4rem;
+  display: inline-block;
+}
+
+/* Flicker delay utility classes */
+.flicker-delay-1 { animation-delay: 2s, 3s, 4s; }
+.flicker-delay-2 { animation-delay: 3s, 4s, 5s; }
+.flicker-delay-3 { animation-delay: 4s, 5s, 6s; }
+.flicker-delay-4 { animation-delay: 5s, 6s, 7s; }
+.flicker-delay-5 { animation-delay: 5s; }
+.flicker-delay-6 { animation-delay: 5.5s; }
+
+/* ============================================================
+   4. Navbar
+   ============================================================ */
 nav {
   display: flex;
   justify-content: center;
@@ -22,14 +107,12 @@ nav a {
   font-weight: 600;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
 nav a.active {
   text-shadow:
     0 0 2px #F05219,
     0 0 6px #F05219,
     0 0 12px #F05219;
 }
-
 nav a::after {
   content: '';
   position: absolute;
@@ -43,7 +126,6 @@ nav a::after {
   transform-origin: center;
   transition: transform 0.3s ease-in-out;
 }
-
 nav a:hover {
   color: #FAF2DB;
   text-shadow:
@@ -53,149 +135,24 @@ nav a:hover {
     0 0 18px #FF2E63,
     0 0 24px #FF2E63;
 }
-
-nav a:hover::after {
-  transform: scaleX(1);
-}
-
-
+nav a:hover::after,
 nav a.active::after {
   transform: scaleX(1);
 }
 
-
-.hero-subheading {
-  text-align: center;
-  margin-top: 1.2rem;
-}
-
-.hero {
-  padding-bottom: 1rem; /* instead of 2rem or more */
-  margin-bottom: 1rem;
-}
-
-
-/* === Nav Link Fade In === */
+/* Nav Link Fade In Animation (if using .navbar) */
 .navbar a {
   opacity: 0;
   transform: translateY(-10px);
   animation: fadeInNav 1s ease forwards;
 }
+.navbar a:nth-child(1) { animation-delay: 0.5s; }
+.navbar a:nth-child(2) { animation-delay: 0.8s; }
+.navbar a:nth-child(3) { animation-delay: 1.1s; }
 
-/* Stagger timing with nth-child */
-.navbar a:nth-child(1) {
-  animation-delay: 0.5s;
-}
-
-.navbar a:nth-child(2) {
-  animation-delay: 0.8s;
-}
-
-.navbar a:nth-child(3) {
-  animation-delay: 1.1s;
-}
-
-.hero-links {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInHeroLinks 1.2s ease forwards;
-  animation-delay: 4.2s; /* Adjust as needed based on final subheading reveal */
-}
-
-/* Optional: stagger children if they're separate */
-.hero-links a {
-  display: inline-block;
-  margin: 0 1rem;
-  font-size: 2rem;
-  color: #FAF2DB;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.hero-links a:hover {
-  color: #F05219;
-}
-
-
-.hero-links {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInHeroLinks 1.2s ease forwards;
-  animation-delay: 4.5s; /* Or match your desired cascade */
-}
-
-.hero-links .neon-link {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeInHeroLinks 1.2s ease forwards;
-}
-
-.flicker-delay-5 {
-  animation-delay: 5s;
-}
-
-.flicker-delay-6 {
-  animation-delay: 5.5s;
-}
-
-@keyframes fadeInHeroLinks {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInHeroLinks {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Keyframes for the gentle entrance */
-@keyframes fadeInNav {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* === Projects Page === */
-
-.projects-heading {
-  text-align: center;
-  margin-bottom: 2rem;
-  animation: fade-in-up 1s ease-in-out both;
-}
-/* === About Page === */
-
-
-
-/* === Global Styles === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #12130F;
-  color: #FAF2DB;
-  line-height: 1.6;
-}
-
-.section {
-  padding: 6rem 1rem; 
-  max-width: 800px;
-  margin: 0 auto;
-}
-
+/* ============================================================
+   5. Hero Section
+   ============================================================ */
 .hero {
   text-align: center;
   background-color: #12130F;
@@ -205,12 +162,20 @@ body {
   margin-top: 60px;
   z-index: 1;
 }
-
 .hero h1 {
   font-size: 3.2rem;
 }
+@media (max-width: 480px) {
+  .hero-intro-line,
+  .hero-intro-combo,
+  .hero-subheading p {
+    font-size: 2rem;
+  }
+}
 
-/* === Hero Heading Animation === */
+/* ============================================================
+   6. Hero Animations
+   ============================================================ */
 .hero-heading {
   font-family: 'Poppins', cursive;
   font-size: 3.6rem;
@@ -221,8 +186,20 @@ body {
   opacity: 0;
   animation: reveal-heading 1s ease-out 4.8s forwards;
 }
-
-
+.handwritten-name {
+  opacity: 0;
+  animation: reveal-heading 1s ease-out 2s forwards;
+}
+.hero-intro-line {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #FAF2DB;
+  text-align: center;
+  opacity: 0;
+  animation: reveal-heading 1s ease-out forwards;
+}
+.hero-intro-line:nth-of-type(1) { animation-delay: 1s; }
+.hero-intro-line:nth-of-type(2) { animation-delay: 2s; }
 .hero-intro-combo {
   font-size: 2.8rem;
   font-weight: 700;
@@ -232,253 +209,84 @@ body {
   animation: reveal-heading 1s ease-out 2s forwards;
 }
 
-.hero-subheading p:nth-child(1) {
-  animation-delay: 2.4s, 3.4s, 4.2s;
+/* Hero Links Reveal */
+.hero-links {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInHeroLinks 1.2s ease forwards;
+  animation-delay: 4.5s;
 }
-.hero-subheading p:nth-child(2) {
-  animation-delay: 2.8s, 3.8s, 4.6s;
-}
-.hero-subheading p:nth-child(3) {
-  animation-delay: 3.2s, 4.2s, 5s;
-}
-
-@keyframes reveal-heading {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Leave the rest of your original CSS untouched below this line */
-
-
-
-
-/* === Global Styles === */
-/* === Navbar === */
-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 0;
-}
-nav a {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.4rem;
+.hero-links a {
+  display: inline-block;
+  margin: 0 1rem;
+  font-size: 2rem;
   color: #FAF2DB;
   text-decoration: none;
-  position: relative;
-  margin: 0 1rem;
-  font-weight: 600;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  transition: color 0.3s ease;
+}
+.hero-links a:hover {
+  color: #F05219;
+}
+.hero-links .neon-link {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInHeroLinks 1.2s ease forwards;
 }
 
-nav a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
-  background: #F05219;
-  box-shadow: 0 0 4px #F05219, 0 0 8px #F05219;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.3s ease-in-out;
-}
-
-nav a:hover {
-  color: #FAF2DB;
-  text-shadow:
-    0 0 2px #F05219,
-    0 0 6px #F05219,
-    0 0 12px #F05219,
-    0 0 18px #FF2E63,
-    0 0 24px #FF2E63;
-}
-
-nav a:hover::after {
-  transform: scaleX(1);
-}
-/* === Hero Section === */
-nav {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #12130F;
-  z-index: 10;
-}
-
-
-
-
-
+/* ============================================================
+   7. Hero Subheadings & Flicker Effects
+   ============================================================ */
 .hero-subheading {
   text-align: center;
   margin-top: 1.2rem;
 }
-
-
-/* === Projects Page === */
-
-.projects-heading {
-  text-align: center;
-  margin-bottom: 2rem;
-  animation: fade-in-up 1s ease-in-out both;
-}
-/* === About Page === */
-
-
-
-/* === Global Styles === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* a {
-  color: inherit;
-  text-decoration: none;
-} */
-
-html {
-  scroll-behavior: smooth;
-}
-
-
-body {
+.hero-subheading p {
   font-family: 'Poppins', sans-serif;
-  background: #12130F;
+  font-size: 2.2rem;
   color: #FAF2DB;
-  line-height: 1.6;
+  font-weight: 600;
+  opacity: 0;
+  text-shadow: none;
+  display: block;
+  animation:
+    fadeInSubheading 3s ease forwards,
+    subtleFlickerLoop 5s ease-in-out infinite,
+    randomFlicker 4s infinite;
 }
+.hero-subheading p:nth-child(1) { animation-delay: 3s, 4s, 4.8s; }
+.hero-subheading p:nth-child(2) { animation-delay: 3.4s, 4.4s, 5.2s; }
+.hero-subheading p:nth-child(3) { animation-delay: 3.8s, 4.8s, 5.6s; }
 
+/* ============================================================
+   8. Section Layouts (.section, .section-heading, etc.)
+   ============================================================ */
 .section {
-  padding: 6rem 1rem; 
+  padding: 6rem 1rem;
   max-width: 800px;
   margin: 0 auto;
 }
-
-/* === Hero Section === */
-.hero {
-  text-align: center;
-  background-color: #12130F; /* Match site background for seamless blend */
-  color: #FAF2DB;
-  padding-top: 0.5rem;
-  padding-bottom: 2rem;
-  margin-top: 60px; /* Reduced from 100px */
-  z-index: 1;
+.section-block {
+  margin-bottom: 5rem;
 }
-
-@media (max-width: 480px) {
-  .hero-intro-line,
-  .hero-intro-combo,
-  .hero-subheading p {
-    font-size: 2rem;
-  }
-}
-
-.hero h1 {
-  font-size: 3.2rem;
-}
-
-
-
-
-.flicker-delay-1 {
-  animation-delay: 2s, 3s, 4s; /* Kota */
-}
-
-.flicker-delay-2 {
-  animation-delay: 3s, 4s, 5s; /* Creative mind. */
-}
-
-.flicker-delay-3 {
-  animation-delay: 4s, 5s, 6s; /* Caffeinated soul. */
-}
-
-.flicker-delay-4 {
-  animation-delay: 5s, 6s, 7s; /* Curious as hell. */
-}
-
-
-/* === Subtle Glow for Hero Intro === */
-
-.hero-intro {
-  color: #FAF2DB;
-  text-shadow:
-    0 0 2px #F05219,
-    0 0 6px #F05219,
-    0 0 12px #F05219,
-    0 0 18px #FF2E63,
-    0 0 24px #FF2E63; */
-  font-size: 3.2rem;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-  display: inline-block;
-}
-
-/* === Glow for Hero Intro Span (matches .glow-bounce) === */
-.hero-intro span {
-  color: #FAF2DB;
+.section-heading span {
+  animation:
+    fadeInSubheading 1s ease forwards,
+    subtleFlickerLoop 5s ease-in-out infinite,
+    randomFlicker 4s infinite;
   text-shadow:
     0 0 2px #F05219,
     0 0 6px #F05219,
     0 0 12px #F05219,
     0 0 18px #FF2E63,
     0 0 24px #FF2E63;
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  font-size: 2.4rem;
   display: inline-block;
+  font-weight: bold;
+  font-size: 2.2rem;
 }
-
-/* === Glowing Text for Name === */
-.glow-orange {
-  text-shadow:
-    0 0 10px #FF4F00,
-    0 0 20px #FF4F00,
-    0 0 30px #FF4F00,
-    0 0 40px #FF4F00;
-}
-
-.glow-name {
-  color: #FAF2DB;
-  text-shadow:
-    0 0 10px #FF4F00,
-    0 0 20px #FF4F00,
-    0 0 30px #FF4F00,
-    0 0 40px #FF4F00;
-  font-size: 2.4rem;
-}
-
-
-/* === Project tiles === */
-
-.project-media {
-  max-width: 100%;
-  width: 400px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  display: block;
-  margin: 1rem auto;
-}
-
-/* === Project Tiles Hover Glow === */
-
-/* === Footer === */
-footer {
-  text-align: center;
-  font-size: 0.875rem;
-  color: #888;
-  padding: 2rem 0;
-}
+.section-heading span.flicker-delay-1 { animation-delay: 2s, 3s, 4s; }
+.section-heading span.flicker-delay-2 { animation-delay: 3s, 4s, 5s; }
+.section-heading span.flicker-delay-3 { animation-delay: 3.6s, 4.6s, 5.8s; }
 .section h2 span {
   color: #FAF2DB;
   text-shadow:
@@ -487,19 +295,27 @@ footer {
     0 0 24px #FF4F00,
     0 0 32px #FF4F00;
 }
-.intro-text {
-  font-weight: 300;
-  color: #FAF2DB;
-  font-size: 2rem;
-}
 
-
-/* === Projects Video Banner === */
+/* ============================================================
+   9. Projects Section
+   ============================================================ */
 .projects-section {
   text-align: center;
   padding: 4rem 1rem;
 }
-
+.projects-heading {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fade-in-up 1s ease-in-out both;
+}
+.projects-title {
+  font-size: 3rem;
+  color: #FAF2DB !important;
+  text-shadow: 0 0 12px #FF4F00, 0 0 24px #FF4F00;
+  font-weight: 700;
+  z-index: 2;
+  pointer-events: none;
+}
 .video-banner {
   display: flex;
   align-items: center;
@@ -512,10 +328,8 @@ footer {
   overflow: hidden;
   border-radius: 16px;
   box-shadow: 0 0 40px rgba(255, 79, 0, 0.4);
-  /* Animation removed from container */
   z-index: 1;
 }
-
 .video-banner::before {
   content: '';
   position: absolute;
@@ -535,7 +349,6 @@ footer {
   animation: flicker-neon 4s linear infinite, neon-pulse 3s ease-in-out infinite;
   z-index: 0;
 }
-
 .video-banner video {
   position: absolute;
   top: 50%;
@@ -548,23 +361,11 @@ footer {
   object-fit: cover;
   filter: brightness(70%);
 }
-
-.projects-title {
-  font-size: 3rem;
-  color: #FAF2DB !important;
-  text-shadow: 0 0 12px #FF4F00, 0 0 24px #FF4F00;
-  font-weight: 700;
-  z-index: 2;
-  pointer-events: none;
-}
-
 .video-link {
   display: block;
   text-decoration: none;
   position: relative;
 }
-
-/* === Projects Grid Layout === */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -573,7 +374,6 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .project-tile {
   background-color: #1A1B16;
   padding: 1rem;
@@ -582,7 +382,6 @@ footer {
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .project-tile:hover {
   transform: translateY(-6px);
   box-shadow:
@@ -592,214 +391,23 @@ footer {
     0 0 18px #FF2E63,
     0 0 24px #FF2E63;
 }
-
 .project-tile video {
   max-width: 100%;
   border-radius: 12px;
   margin-bottom: 1rem;
 }
-
-
-
-.section-block {
-  margin-bottom: 5rem;
-}
-.neon-kota {
-  font-family: 'Ephesis', cursive;
-  font-size: 3.6rem;
-  color: #FAF2DB;
-  text-shadow:
-    0 0 2px #F05219,
-    0 0 6px #F05219,
-    0 0 12px #F05219,
-    0 0 18px #FF2E63,
-    0 0 24px #FF2E63;
-  display: inline-block;
-}
-
-/* === Neon Navigation Links Centering and Spacing === */
-.neon-nav-links {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-
-.neon-link {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.2rem;
-  color: #FAF2DB;
-  text-decoration: none;
-  position: relative;
-  display: inline-block;
-  margin: 1.5rem auto;
-  font-weight: bold;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.neon-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  height: 2px;
-  width: 100%;
-  background: #F05219;
-  box-shadow: 0 0 6px #F05219, 0 0 12px #F05219;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.neon-link:hover::after {
-  transform: scaleX(1);
-}
-
-.neon-link:hover {
-  color: #FAF2DB;
-  text-shadow:
-    0 0 2px #F05219,
-    0 0 6px #F05219,
-    0 0 12px #F05219,
-    0 0 18px #FF2E63,
-    0 0 24px #FF2E63;
-}
-
-
-/* === Hero Heading Bounce Animation === */
-.hero-heading {
-  font-family: 'Poppins', cursive;
-  font-size: 3.6rem;
-  font-weight: 400;
-  color: #FAF2DB;
-  text-align: center;
-  margin-bottom: 1rem;
-  opacity: 0;
-  animation: reveal-heading 1s ease-out 4.8s forwards;
-}
-
-.handwritten-name {
-  /* If still used separately, ensure it is hidden initially and revealed with .hero-heading */
-  opacity: 0;
-  animation: reveal-heading 1s ease-out 2s forwards;
-}
-
-.hero-subheading p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.2rem;
-  color: #FAF2DB;
-  font-weight: 600;
-  opacity: 0;
-  text-shadow: none;
+.project-media {
+  max-width: 100%;
+  width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   display: block;
-  animation:
-    fadeInSubheading 3s ease forwards,
-    subtleFlickerLoop 5s ease-in-out infinite,
-    randomFlicker 4s infinite;
+  margin: 1rem auto;
 }
 
-.hero-subheading p:nth-child(1) {
-  animation-delay: 3s, 4s, 4.8s;
-}
-.hero-subheading p:nth-child(2) {
-  animation-delay: 3.4s, 4.4s, 5.2s;
-}
-.hero-subheading p:nth-child(3) {
-  animation-delay: 3.8s, 4.8s, 5.6s;
-}
-
-/* === Keyframes Grouped Together === */
-
-@keyframes breathe-glow {
-  0%, 100% {
-    text-shadow:
-      0 0 12px #FF4F00,
-      0 0 24px #FF4F00,
-      0 0 36px #FF4F00;
-  }
-  50% {
-    text-shadow:
-      0 0 18px #FF4F00,
-      0 0 36px #FF4F00,
-      0 0 54px #FF4F00;
-  }
-}
-
-@keyframes flicker-neon {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 58%, 100% {
-    opacity: 1;
-    text-shadow:
-      0 0 2px #F05219,
-      0 0 6px #F05219,
-      0 0 12px #F05219,
-      0 0 18px #FF2E63,
-      0 0 24px #FF2E63;
-  }
-  20%, 22%, 24%, 55%, 57% {
-    opacity: 0.4;
-    text-shadow: none;
-  }
-}
-
-@keyframes neon-pulse {
-  0%, 100% {
-    text-shadow:
-      0 0 2px #F05219,
-      0 0 6px #F05219,
-      0 0 12px #F05219,
-      0 0 18px #FF2E63,
-      0 0 24px #FF2E63;
-  }
-  50% {
-    text-shadow:
-      0 0 4px #F05219,
-      0 0 8px #F05219,
-      0 0 16px #F05219,
-      0 0 24px #FF2E63,
-      0 0 32px #FF2E63;
-  }
-}
-
-
-@keyframes hero-bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-/* === Glow Bounce Trait Lines === */
-/* === Glow Bounce Trait Lines === */
-.glow-bounce {
-  color: #FAF2DB;
-  text-shadow:
-    0 0 4px #FF4F00,
-    0 0 10px #FF4F00,
-    0 0 20px #FF4F00,
-    0 0 30px #FF4F00;
-  animation:
-    fadeInSubheading 2s ease forwards,
-    subtleFlickerLoop 1s ease-in-out infinite,
-    randomFlicker 4s infinite;
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  font-size: 3rem;
-  display: inline-block;
-}
-
-/* === Subtle Glow Trait Lines (No Animation, Less Intense) === */
-.glow-subtle {
-  color: #FAF2DB;
-  text-shadow:
-    0 0 2px #F05219,
-    0 0 4px #F05219,
-    0 0 6px #F05219;
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  font-size: 2.4rem;
-  display: inline-block;
-}
-/* === About Me Image Sizing === */
+/* ============================================================
+   10. About Section
+   ============================================================ */
 .about-img {
   max-width: 300px;
   width: 100%;
@@ -809,28 +417,45 @@ footer {
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
+
+/* ============================================================
+   11. Footer
+   ============================================================ */
+footer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #888;
+  padding: 2rem 0;
+}
+
+/* ============================================================
+   12. Keyframes (Grouped Together)
+   ============================================================ */
+@keyframes fadeInHeroLinks {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInNav {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes reveal-heading {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @keyframes fadeInName {
   to {
     opacity: 1;
-  }
-}
-
-@keyframes flickerFadeIn {
-  0% {
-    opacity: 0;
-    text-shadow: none;
-  }
-  50% {
-    opacity: 1;
-    text-shadow:
-      0 0 2px #F05219,
-      0 0 4px #F05219;
-  }
-  100% {
-    opacity: 1;
-    text-shadow:
-      0 0 1px #F05219,
-      0 0 2px #F05219;
   }
 }
 @keyframes fadeInSubheading {
@@ -874,8 +499,79 @@ footer {
       0 0 12px #F05219;
   }
 }
-/* === SVG Signature Animation === */
-
+@keyframes breathe-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 12px #FF4F00,
+      0 0 24px #FF4F00,
+      0 0 36px #FF4F00;
+  }
+  50% {
+    text-shadow:
+      0 0 18px #FF4F00,
+      0 0 36px #FF4F00,
+      0 0 54px #FF4F00;
+  }
+}
+@keyframes flicker-neon {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 58%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 6px #F05219,
+      0 0 12px #F05219,
+      0 0 18px #FF2E63,
+      0 0 24px #FF2E63;
+  }
+  20%, 22%, 24%, 55%, 57% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 6px #F05219,
+      0 0 12px #F05219,
+      0 0 18px #FF2E63,
+      0 0 24px #FF2E63;
+  }
+  50% {
+    text-shadow:
+      0 0 4px #F05219,
+      0 0 8px #F05219,
+      0 0 16px #F05219,
+      0 0 24px #FF2E63,
+      0 0 32px #FF2E63;
+  }
+}
+@keyframes hero-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes flickerFadeIn {
+  0% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #F05219,
+      0 0 4px #F05219;
+  }
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 1px #F05219,
+      0 0 2px #F05219;
+  }
+}
 @keyframes subtleFlickerLoop {
   0%, 100% {
     text-shadow:
@@ -890,8 +586,6 @@ footer {
       0 0 6px #F05219;
   }
 }
-
-
 @keyframes randomFlicker {
   0%, 95%, 100% {
     opacity: 1;
@@ -912,7 +606,10 @@ footer {
       0 0 12px #F05219;
   }
 }
-/* === Polaroid Style Figure === */
+
+/* ============================================================
+   13. Miscellaneous (Polaroid, LinkedIn icon, etc.)
+   ============================================================ */
 .polaroid {
   background: #FAF2DB;
   padding: 0.5rem 1rem 1.2rem;
@@ -924,18 +621,15 @@ footer {
   transform: rotate(-2deg);
   transition: transform 0.3s ease;
 }
-
 .polaroid:hover {
   transform: rotate(0deg) scale(1.02);
 }
-
 .polaroid img {
   width: 100%;
   height: auto;
   border-radius: 6px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
-
 .polaroid figcaption {
   margin-top: 1rem;
   font-size: 1rem;
@@ -943,11 +637,10 @@ footer {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
 }
-.section-heading span {
-  animation:
-    fadeInSubheading 1s ease forwards,
-    subtleFlickerLoop 5s ease-in-out infinite,
-    randomFlicker 4s infinite;
+.neon-kota {
+  font-family: 'Ephesis', cursive;
+  font-size: 3.6rem;
+  color: #FAF2DB;
   text-shadow:
     0 0 2px #F05219,
     0 0 6px #F05219,
@@ -955,60 +648,53 @@ footer {
     0 0 18px #FF2E63,
     0 0 24px #FF2E63;
   display: inline-block;
-  font-weight: bold;
-  font-size: 2.2rem;
 }
-
-.section-heading span.flicker-delay-1 {
-  animation-delay: 2s, 3s, 4s;
-}
-
-.section-heading span.flicker-delay-2 {
-  animation-delay: 3s, 4s, 5s;
-}
-
-.section-heading span.flicker-delay-3 {
-  animation-delay: 3.6s, 4.6s, 5.8s;
-}
-
-@keyframes reveal-heading {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* === Hero Intro Lines Reveal Animation === */
-.hero-intro-line {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #FAF2DB;
+.neon-nav-links {
   text-align: center;
-  opacity: 0;
-  animation: reveal-heading 1s ease-out forwards;
+  margin-top: 3rem;
 }
-
-.hero-intro-line:nth-of-type(1) {
-  animation-delay: 1s;
+.neon-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  color: #FAF2DB;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  margin: 1.5rem auto;
+  font-weight: bold;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
-.hero-intro-line:nth-of-type(2) {
-  animation-delay: 2s;
+.neon-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  height: 2px;
+  width: 36px;
+  background: #F05219;
+  box-shadow: 0 0 6px #F05219, 0 0 12px #F05219;
+  transform-origin: center;
+  transition: transform 0.3s ease;
 }
-
-
-/* === Inline LinkedIn Icon Styling === */
+.neon-link:hover::after {
+  transform: scaleX(1);
+}
+.neon-link:hover {
+  color: #FAF2DB;
+  text-shadow:
+    0 0 2px #F05219,
+    0 0 6px #F05219,
+    0 0 12px #F05219,
+    0 0 18px #FF2E63,
+    0 0 24px #FF2E63;
+}
 .linkedin-inline-icon svg {
   transition: transform 0.2s ease;
   vertical-align: middle;
   margin-left: 10px;
   fill: #FF4F00;
 }
-
 .linkedin-inline-icon:hover svg {
   transform: scale(1.1);
 }
