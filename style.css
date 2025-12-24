@@ -841,3 +841,23 @@ footer {
   display: inline-block;
   box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
 }
+
+/* ============================================================
+   DJ BIO – spacing + readability
+   ============================================================ */
+
+.dj-bio {
+  max-width: 760px;              /* Keeps line length readable */
+  margin: 3rem auto 4rem;        /* Space from heading and grid */
+  padding: 0 1rem;               /* Breathing room on small screens */
+}
+
+.dj-bio p {
+  margin-bottom: 1.5rem;         /* Vertical rhythm between thoughts */
+  line-height: 1.75;             /* Easier reading, less cramped */
+  opacity: 0.95;                 /* Slightly softer than headings */
+}
+
+.dj-bio p:last-child {
+  margin-bottom: 0;              /* Clean ending */
+}
