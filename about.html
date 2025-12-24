@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,71 +6,74 @@
   <title>About Me | Kota Smith</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
-  <!-- === Navbar === -->
-  <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="about.html" class="active">About</a>
-     <a href="https://www.linkedin.com/in/kotacsmith" target="_blank" aria-label="LinkedIn" class="linkedin-inline-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#FF4F00">
-      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 
-      5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 
-      19h-3v-10h3v10zm-1.5-11.268c-.966 
-      0-1.75-.784-1.75-1.75s.784-1.75 
-      1.75-1.75 1.75.784 
-      1.75 1.75-.784 1.75-1.75 
-      1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.868-3.063-1.869 
-      0-2.156 1.46-2.156 
-      2.966v5.701h-3v-10h2.881v1.367h.041c.401-.762 
-      1.379-1.562 2.839-1.562 3.035 
-      0 3.595 1.997 3.595 
-      4.593v5.602z"/>
-    </svg>
-  </a>
+<body>
+  <!-- === Nav === -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="projects.html">Projects</a>
+      <a class="nav-link active" href="about.html">About</a>
+      <a class="nav-link nav-icon" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        in
+      </a>
+    </div>
   </nav>
 
-  <!-- === Section: About === -->
-  <section id="about" class="section">
-    <div class="section-block">
+  <main>
+    <!-- === About Hero (Photo + Intro) === -->
+    <section class="about-hero">
       <figure class="polaroid">
-        <img src="Media/kota_about.jpg" alt="Kota at sunset on a boat" class="about-img" />
-        <figcaption>Hey, I'm Kota.</figcaption>
+        <img class="about-img" src="Media/RE-GRADED-Your Shot LA_Kurza_2025_0914_170200-2264_DB.jpg" alt="Portrait of Kota" />
+        <figcaption class="polaroid-caption">Hey, I'm Kota.</figcaption>
       </figure>
-      <h2 class="section-heading">🤔 <span class="flicker flicker-delay-1">Who I Am</span></h2>
-      <p>Creative hobbyist who has been through tech support, hiring loops, and coffee rushes. Now I build things that don't crash, confuse, or spill. I've taught myself to code, animate, and ship ideas. Not for a job title or a gold star, but because doing it is the experience. This site, along with a few Blender renders, is my proof that I'm already in the game.</p>
-    </div>
+    </section>
 
-    <div class="section-block">
-      <h2 class="section-heading">🎧 <span class="flicker flicker-delay-2">Where I'm Headed</span></h2>
-      <p>I'm in the middle of transitioning into a more digital-forward career. That means learning, building, testing—and probably breaking stuff along the way. Like this website. The goal? I'm chasing work that's more digital, more creative, more me. Stuff with motion. With systems. With soul. Deliverables that look good and actually work. I don't have it all figured out yet, but I know this: If it resonates, connects, or makes someone pause and smile—yeah, that's the kind of work I want more of.</p>
-    </div>
-  
-    <div class="section-block">
-      <h2 class="section-heading">🪩 <span class="flicker flicker-delay-3">Bonus Fun Facts</span></h2>
-      <ul>
-        <li>I can build a site, fix your iPhone, brew a latte with perfect microfoam, and redesign your onboarding flow—all before noon.</li>
-        <li>I've worked in tech support, talent acquisition, and retail leadership. But this site? This is where I finally get to say what I want to say, not what the system scripts.</li>
-        <li>Somewhere between DJing at 2AM and debugging CSS, I realized I like solving things I barely understand.</li>
-        <li>I've absolutely lost hours to niche remixes, weird tech builds, and stunning portfolio sites—and I regret nothing.</li>
-      </ul>
-    </div>
-  </section>
+    <!-- === About Content === -->
+    <section class="about-content">
 
+      <section class="section-block">
+        <div class="section-copy">
+          <h2>🤔 Who I Am</h2>
+          <p>
+            Creative hobbyist who has been through tech support, hiring loops, and coffee rushes. Now I build things
+            that don't crash, confuse, or spill. I've taught myself to code, animate, and ship ideas. Not for a job title
+            or a gold star, but because doing it is the experience. This site, along with a few Blender renders, is my proof
+            that I'm already in the game.
+          </p>
+        </div>
+      </section>
 
+      <section class="section-block">
+        <div class="section-copy">
+          <h2>🎧 Where I'm Headed</h2>
+          <p>
+            I'm in the middle of transitioning into a more digital-forward career. That means learning, building, testing—
+            and probably breaking stuff along the way. Like this website. The goal? I'm chasing work that's more digital,
+            more creative, more me. Stuff with motion. With systems. With soul. Deliverables that look good and actually work.
+            I don't have it all figured out yet, but I know this: If it resonates, connects, or makes someone pause and smile—
+            yeah, that's the kind of work I want more of.
+          </p>
+        </div>
+      </section>
 
-  <!-- === Footer: Copyright === -->
-  <footer>
-    <p id="copyright"></p>
+      <section class="section-block">
+        <div class="section-copy">
+          <h2>🌎 Bonus Fun Facts</h2>
+          <ul class="about-list">
+            <li>I can build a site, fix your iPhone, brew a latte with perfect microfoam, and redesign your onboarding flow—all before noon.</li>
+            <li>I've worked in tech support, talent acquisition, and retail leadership. But this site? This is where I finally get to say what I want to say, not what the system scripts.</li>
+            <li>Somewhere between DJing at 2AM and debugging CSS, I realized I like solving things I barely understand.</li>
+            <li>I've absolutely lost hours to niche remixes, weird tech builds, and stunning portfolio sites—and I regret nothing.</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Kota Smith — fueled by caffeine &amp; curiosity. All rights reserved.</p>
   </footer>
-
-  <!-- === Script: Auto-Updating Copyright === -->
-  <script>
-    const year = new Date().getFullYear();
-    document.getElementById("copyright").innerHTML =
-      `© ${year} Kota Smith — fueled by caffeine & curiosity. All rights reserved.`;
-  </script>
-
 </body>
 </html>
