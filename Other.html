@@ -1,2 +1,75 @@
-<title>Other | Kota Smith</title>
-<h2 class="section-heading">🧃 <span>Other</span></h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding | Kota Smith</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<!-- 
+  Head section:
+  - Sets character encoding
+  - Enables responsive scaling on mobile
+  - Pulls in your shared global stylesheet
+-->
+
+<body>
+
+  <!-- === Navbar === -->
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="about.html">About</a>
+    <a href="https://www.linkedin.com/in/kotacsmith"
+       target="_blank"
+       aria-label="LinkedIn"
+       class="linkedin-inline-icon">
+      <!-- Inline SVG keeps the LinkedIn icon crisp and stylable -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.868-3.063-1.869 0-2.156 1.46-2.156 2.966v5.701h-3v-10h2.881v1.367h.041c.401-.762 1.379-1.562 2.839-1.562 3.035 0 3.595 1.997 3.595 4.593v5.602z"/>
+      </svg>
+    </a>
+  </nav>
+  <!-- 
+    Fixed top navigation:
+    - "Projects" stays active because Coding is a sub-page
+    - Consistent nav across all pages = better UX
+  -->
+
+  <!-- =====================================================
+       CODING PAGE
+       Web builds, UI experiments, interactions, and systems.
+  ====================================================== -->
+  <h2 class="section-heading">💻 <span>Coding</span></h2>
+  <!-- 
+    Page heading:
+    - Uses existing .section-heading styles
+    - Emoji helps scanning + personality
+    - <span> enables neon glow styling
+  -->
+
+  <section class="project-grid">
+    <!-- 
+      Project grid container:
+      - Drop in cards for sites, components, experiments
+      - Can hold videos, screenshots, or live demos later
+    -->
+  </section>
+
+  <footer>
+    <p id="copyright"></p>
+  </footer>
+  <!-- Footer stays minimal and consistent across pages -->
+
+  <script>
+    const year = new Date().getFullYear();
+    document.getElementById("copyright").innerHTML =
+      `© ${year} Kota Smith — fueled by caffeine & curiosity. All rights reserved.`;
+  </script>
+  <!-- 
+    JS snippet:
+    - Automatically updates the copyright year
+    - Prevents “why does it still say 2024?” energy
+  -->
+</body>
+</html>
