@@ -861,3 +861,11 @@ footer {
 .dj-bio p:last-child {
   margin-bottom: 0;              /* Clean ending */
 }
+
+.dj-photo {
+  width: min(100%, 600px); /* smaller images without forcing a crop */
+  height: auto;            /* preserves original aspect ratio */
+  display: block;
+  margin: 2rem auto;
+  border-radius: 10px;
+}
