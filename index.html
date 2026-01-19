@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XHP2WEMRNV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XHP2WEMRNV');
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kota Smith | Creative Technologist</title>
@@ -17,7 +27,7 @@
   <a href="index.html" class="active">Home</a>
   <a href="projects.html">Projects</a>
   <a href="about.html">About</a>
-  <a href="https://www.linkedin.com/in/kotacsmith" target="_blank" aria-label="LinkedIn" class="linkedin-inline-icon">
+  <a href="https://www.linkedin.com/in/kotacsmith" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="linkedin-inline-icon">
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#FF4F00">
       <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 
       5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 
@@ -44,11 +54,13 @@
     <p class="hero-intro-line">Hey</p>
     <p class="hero-intro-combo"><span>I'm</span> <span class="glow-bounce">Kota</span></p>
   </div>
+  <p class="plain-text">Creative technologist exploring code, design, and interactive ideas.</p>
 
   <div class="hero-subheading">
-    <p class="glow-bounce flicker-delay-1">Creative mind.</p>
-    <p class="glow-bounce flicker-delay-2">Caffeinated soul.</p>
-    <p class="glow-bounce flicker-delay-3">Curious as hell.</p>
+  <p class="hero-subline">
+  <span class="glow-bounce flicker-delay-2">Caffeinated.</span>
+  <span class="glow-bounce flicker-delay-3">Curious.</span>
+</p>
   </div>
 </section>
 
@@ -57,7 +69,7 @@
  <section class="section neon-nav-links hero-links">
   <a class="neon-link flicker-delay-5" href="projects.html">Projects</a><br>
   <a class="neon-link flicker-delay-6" href="about.html">About Me</a>
-  <a href="https://www.linkedin.com/in/kotacsmith" target="_blank" aria-label="LinkedIn" class="linkedin-inline-icon">
+  <a href="https://www.linkedin.com/in/kotacsmith" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="linkedin-inline-icon">
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#FF4F00">
       <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 
       5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 
@@ -75,6 +87,10 @@
   </a>
 </section>
 
+
+</body>
+
+
   <!-- === Footer: Copyright === -->
   <footer>
     <p id="copyright"></p>
@@ -86,34 +102,4 @@
     document.getElementById("copyright").innerHTML =
       `© ${year} Kota Smith — fueled by caffeine & curiosity. All rights reserved.`;
   </script>
-
-
-
-
-
-<script>
-  const flickerClasses = ['flicker-line-1', 'flicker-line-2', 'flicker-line-3'];
-
-  function flickerRandomLine() {
-    const targetClass = flickerClasses[Math.floor(Math.random() * flickerClasses.length)];
-    const el = document.querySelector(`.${targetClass}`);
-    
-    if (el) {
-      el.classList.remove('glow-bounce');
-      
-      // Trigger reflow to restart animation
-      void el.offsetWidth;
-      
-      el.classList.add('glow-bounce');
-    }
-
-    // Repeat every 4 to 8 seconds
-    const nextDelay = Math.random() * 4000 + 4000;
-    setTimeout(flickerRandomLine, nextDelay);
-  }
-
-  // Start after initial load animation finishes
-  setTimeout(flickerRandomLine, 5000);
-</script>
-</body>
 </html>
