@@ -40,6 +40,12 @@ body {
   line-height: 1.5;
 }
 
+/* Global media safety: prevents oversized images/videos from spilling outside containers */
+img, video {
+  max-width: 100%; /* responsive by default */
+  height: auto;    /* keeps aspect ratio */
+}
+
 /* ============================================================
    LINK DEFAULTS — remove purple + keep links on-brand site-wide
    Note: browsers often color visited links purple unless we override :visited.
@@ -119,6 +125,17 @@ a:hover {
   align-items: center;
 }
 
+/* LinkedIn SVG: force the icon to follow the nav link color (prevents black fill) */
+.linkedin-inline-icon svg {
+  fill: currentColor; /* SVG inherits the <a> element's `color` */
+  display: block;     /* avoids tiny baseline alignment gaps */
+}
+
+/* Some SVGs apply fill on <path>; force that to inherit too */
+.linkedin-inline-icon svg path {
+  fill: currentColor;
+}
+
 /* -------------------------
    BACK ARROW — minimal “IKEA-style” back nav for project sub-pages
    (HTML: <a class="back-arrow" href="projects.html">←</a>)
@@ -173,6 +190,33 @@ a:hover {
   flex-direction: column;   /* stack image + text */
   align-items: center;      /* centers horizontally */
   text-align: center;       /* centers text */
+}
+
+/* -------------------------
+   DJ PAGE — photo sizing + editorial spacing
+   Ensures story photos feel intentional (not gigantic raw exports)
+   ------------------------- */
+
+/* Centers the DJ story column (text + photos) for a clean editorial read */
+.dj-story {
+  max-width: 760px; /* keeps line length readable */
+  margin: 0 auto;   /* centers the story block */
+}
+
+/* DJ photos: responsive + capped size + centered */
+.dj-photo {
+  display: block;          /* removes inline spacing quirks */
+  width: 100%;             /* responsive on mobile */
+  max-width: 520px;        /* prevents huge desktop photos */
+  height: auto;            /* keep aspect ratio */
+
+  margin: 28px auto;       /* space above/below + centered */
+  border-radius: 14px;     /* soft modern rounding */
+
+  /* Subtle depth so images feel like “content cards” */
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 
