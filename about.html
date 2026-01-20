@@ -1,3 +1,19 @@
+
+  <!-- === example architecture === 
+.site
+  header
+    .container
+      nav   ← same as Home
+  main
+    .container
+      .about-container
+        .about-hero
+        .about-text
+  footer
+    .container
+      p#copyright
+  script
+-->
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,88 +24,92 @@
 </head>
 
 <body>
-  <!-- === Nav === -->
-  <nav class="navbar">
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="about.html" class="active">About</a>
-  <a href="resume.html">Resume</a>
-  <a href="https://www.linkedin.com/in/kotacsmith" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="linkedin-inline-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#FF4F00">
-      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 
-      5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 
-      19h-3v-10h3v10zm-1.5-11.268c-.966 
-      0-1.75-.784-1.75-1.75s.784-1.75 
-      1.75-1.75 1.75.784 
-      1.75 1.75-.784 1.75-1.75 
-      1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.868-3.063-1.869 
-      0-2.156 1.46-2.156 
-      2.966v5.701h-3v-10h2.881v1.367h.041c.401-.762 
-      1.379-1.562 2.839-1.562 3.035 
-      0 3.595 1.997 3.595 
-      4.593v5.602z"/>
-    </svg>
-  </a>
-</nav>
+  <!-- === Site Wrapper: keeps layout consistent across pages === -->
+  <div class="site">
 
-  <main>
+    <!-- === Header: contains the primary navigation === -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="site-nav" aria-label="Primary">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="about.html" class="nav-link active">About</a>
+
+          <!-- LinkedIn: styled like a nav item, but uses an inline SVG icon -->
+          <a href="https://www.linkedin.com/in/kotacsmith"
+             class="nav-link linkedin-inline-icon"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#FF4F00">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 
+              5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 
+              19h-3v-10h3v10zm-1.5-11.268c-.966 
+              0-1.75-.784-1.75-1.75s.784-1.75 
+              1.75-1.75 1.75.784 
+              1.75 1.75-.784 1.75-1.75 
+              1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.868-3.063-1.869 
+              0-2.156 1.46-2.156 
+              2.966v5.701h-3v-10h2.881v1.367h.041c.401-.762 
+              1.379-1.562 2.839-1.562 3.035 
+              0 3.595 1.997 3.595 
+              4.593v5.602z"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- === Main: unique page content lives here === -->
+    <main class="site-main">
+      <div class="container">
+<div class="about-container">
     <!-- === About Hero (Photo + Intro) === -->
     <section class="about-hero">
       <figure class="polaroid">
-        <img class="about-img" src="Media/RE-GRADED-Your Shot LA_Kurza_2025_0914_170200-2264_DB.jpg" alt="Portrait of Kota" />
-        <figcaption class="polaroid-caption">Hey, I'm Kota.</figcaption>
+        <img class="about-img" src="Assets/AboutMe.jpg" alt="Portrait of Kota"/>
+        <figcaption class="polaroid-caption"></figcaption>
       </figure>
     </section>
+  <div class="about-text">
+    <p>
+  Kota Smith is a creative technologist who realized his life was too short to clock in and out just to do the same thing for years.
+  During his time working in Apple retail, he kept meeting people doing genuinely cool things with technology.
+  Designers. Developers. Filmmakers. Founders. It stuck with him.
+  He was fascinated by what people were building, even though he did not feel like he had his own creative medium yet.
+  Later, after working across tech support, recruiting, and other high-pressure customer roles, he came to a simple conclusion.
+  He just wanted to make stuff for the sake of making it.
+</p>
 
-    <!-- === About Content === -->
-    <section class="about-content">
+<p>
+  So he started tinkering.
+  He built his own website from scratch, bought his own domain, and avoided shortcuts because he wanted to understand how things actually worked.
+  He started dabbling in code just to have something to work on.
+  Blender came from a similar place.
+  It gave him a way to express ideas visually without needing a degree or expensive software, and watching a render slowly come together scratches a very specific, satisfying itch.
+  This site, along with a growing archive of renders, web experiments, and half-finished projects, is simply a record of what he is building as he goes.
+</p>
 
-      <section class="section-block">
-        <div class="section-copy">
-          <h2>🤔 Who I Am</h2>
-          <p>
-            Creative hobbyist who has been through tech support, hiring loops, and coffee rushes. Now I build things
-            that don't crash, confuse, or spill. I've taught myself to code, animate, and ship ideas. Not for a job title
-            or a gold star, but because doing it is the experience. This site, along with a few Blender renders, is my proof
-            that I'm already in the game.
-          </p>
-        </div>
-      </section>
+  <p>
+    <a href="/assets/Dakota_Smith_Resume copy.pdf" download>
+      Download Resume (PDF)
+    </a>
+  </p>
 
-      <section class="section-block">
-        <div class="section-copy">
-          <h2>🎧 Where I'm Headed</h2>
-          <p>
-            I'm in the middle of transitioning into a more digital-forward career. That means learning, building, testing—
-            and probably breaking stuff along the way. Like this website. The goal? I'm chasing work that's more digital,
-            more creative, more me. Stuff with motion. With systems. With soul. Deliverables that look good and actually work.
-            I don't have it all figured out yet, but I know this: If it resonates, connects, or makes someone pause and smile—
-            yeah, that's the kind of work I want more of.
-          </p>
-        </div>
-      </section>
 
-      <section class="section-block">
-        <div class="section-copy">
-          <h2>🌎 Bonus Fun Facts</h2>
-          <ul class="about-list">
-            <li>I can build a site, fix your iPhone, brew a latte with perfect microfoam, and redesign your onboarding flow—all before noon.</li>
-            <li>I've worked in tech support, talent acquisition, and retail leadership. But this site? This is where I finally get to say what I want to say, not what the system scripts.</li>
-            <li>Somewhere between DJing at 2AM and debugging CSS, I realized I like solving things I barely understand.</li>
-            <li>I've absolutely lost hours to niche remixes, weird tech builds, and stunning portfolio sites—and I regret nothing.</li>
-          </ul>
-        </div>
-      </section>
+  </div>
+</div>
+      </div>
+    </main>
 
-    </section>
-  </main>
+  <!-- === Footer: shared across pages === -->
+    <footer class="site-footer">
+      <div class="container">
+        <p id="copyright"></p>
+      </div>
+    </footer>
 
-</body>
-
-<!-- === Footer: Copyright === -->
-  <footer>
-    <p id="copyright"></p>
-  </footer>
+  </div> <!-- end .site -->
 
   <!-- === Script: Auto-Updating Copyright === -->
   <script>
@@ -97,4 +117,5 @@
     document.getElementById("copyright").innerHTML =
       `© ${year} Kota Smith — fueled by caffeine & curiosity. All rights reserved.`;
   </script>
+</body>
 </html>

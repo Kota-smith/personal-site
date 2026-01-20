@@ -1,26 +1,370 @@
 /* ============================================================
-   KotaSmith.com — Ultra Base CSS v0
-   Purpose: Absolute minimum foundation
-   Just colors + readable text
+   KotaSmith.com — Base CSS (Layered)
+   Goal: keep CSS learnable by organizing into layers:
+   1) Tokens (variables)
+   2) Foundation (reset + layout primitives)
+   3) Components (nav, pages, cards)
+   4) Effects (hover/active/glow)
    ============================================================ */
 
-/* =========================
-   Brand Color Tokens
-   (sticky-note style reminders)
-   ========================= */
+
+/* ============================================================
+   1) TOKENS — global variables (change once → whole site updates)
+   ============================================================ */
 :root {
-  --black: #0A100D;        /* Onyx — main background */
-  --beige: #E6E1C6;        /* Sand Dune — cards, surfaces, accents */
-  --orange: #FF4F00;       /* Flame Orange — links, highlights */
-  --text-main: #F4F2EA;    /* Warm off-white — main readable text */
+  --bg: #171717;        /* Page background */
+  --text: #DEDEDE;      /* Default text color */
+  --accent: #F2572B;    /* Accent / glow color */
+
+  --max-width: 980px;   /* Max readable content width */
+  --gutter: 24px;       /* Side padding on small screens */
 }
 
-/* =========================
-   Body Defaults
-   (temporary + boring on purpose)
-   ========================= */
+
+/* ============================================================
+   2) FOUNDATION — reset + layout primitives (mobile-safe by default)
+   ============================================================ */
+
+/* Basic reset: predictable sizing + removes browser default margins */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
 body {
-  background: var(--black);   /* use the black color above */
-  color: var(--text-main);    /* use the text color above */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Your original “boring on purpose” defaults */
+  background: var(--bg);
+  color: var(--text);
+
+  /* Added: remove default browser margin + set readable base font */
+  margin: 0; /* without this, pages look “janky” due to default margins */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   LINK DEFAULTS — remove purple + keep links on-brand site-wide
+   Note: browsers often color visited links purple unless we override :visited.
+   ============================================================ */
+a {
+  color: var(--text);          /* Default link color (no purple) */
+  text-decoration: none;       /* Remove default underline */
+}
+
+a:visited {
+  color: var(--text);          /* Keep visited links from turning purple */
+}
+
+/* Optional global hover (nav links already have their own glow rules) */
+a:hover {
+  color: #ffffff;
+}
+
+/* Container: centers content + caps width, while staying fluid on mobile */
+.container {
+  width: min(var(--max-width), calc(100% - (var(--gutter) * 2)));
+  margin: 0 auto;
+}
+
+/* Site wrapper: enables sticky-footer layout (header → main → footer) */
+.site {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main area: fills remaining height so footer sits at the bottom */
+.site-main {
+  flex: 1;
+  padding: 40px 0; /* comfortable vertical spacing */
+}
+
+/* Header spacing (nav lives here) */
+.site-header {
+  padding: 24px 0;
+}
+
+
+/* ============================================================
+   3) COMPONENTS — reusable UI pieces (nav, cards, page sections)
+   ============================================================ */
+
+
+/* -------------------------
+   NAV — base link styling + layout
+   ------------------------- */
+
+/* Nav row: centered links with spacing */
+.site-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Base nav link: removes purple/underline defaults and matches theme */
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative; /* required for underline (::after) */
+}
+
+/* LinkedIn icon behaves like a nav item (aligns SVG nicely) */
+.linkedin-inline-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+
+/* -------------------------
+   ABOUT — page-specific structure
+   ------------------------- */
+
+/* About photo sizing (keeps it responsive) */
+.about-img {
+  width: 500px;        /* try 220–320px if you want smaller */
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px; /* optional: makes it classy */
+}
+
+/* Centers About content and keeps layout consistent */
+.about-container {
+  max-width: 900px;         /* readable line-length for bio text */
+  margin: 0 auto;           /* centers the block */
+  display: flex;
+  flex-direction: column;   /* stack image + text */
+  align-items: center;      /* centers horizontally */
+  text-align: center;       /* centers text */
+}
+
+
+/* -------------------------
+   PROJECTS — cards + grid
+   ------------------------- */
+
+/* Projects page wrapper: (kept from your existing code) */
+.projects-page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.projects-title {
+  margin: 0 0 24px 0;
+  font-size: 42px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* Project card: clickable tile */
+.project-card {
+  display: block;
+  padding: 22px 22px 18px;
+  border-radius: 18px;
+
+  /* Visual styling (from your existing code) */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+
+  text-decoration: none; /* removes default link underline */
+  transform: translateY(0);
+
+  /* Smooth hover transitions */
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+/* Headings / copy inside cards */
+.project-card h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+
+.project-card p {
+  margin: 0 0 14px;
+  line-height: 1.45;
+  opacity: 0.9;
+}
+
+/* Tag pills under each card */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags span {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  opacity: 0.9;
+}
+
+/* ============================================================
+   PROJECT CARDS — polish overrides (brings cards up to nav-level)
+   These rules override earlier card/link defaults without deleting anything.
+   ============================================================ */
+
+/* Ensure the entire card (and visited state) never goes purple */
+.project-card,
+.project-card:visited {
+  color: var(--text);          /* Locks text color inside cards */
+}
+
+/* Strong, clean card titles */
+.project-card h2 {
+  color: #ffffff;              /* Title contrast */
+  letter-spacing: 0.2px;
+}
+
+/* Slightly softer card body copy */
+.project-card p {
+  color: rgba(222, 222, 222, 0.85);
+  opacity: 1;                  /* Overrides earlier opacity-based dimming */
+}
+
+/* Upgrade card surface: subtle depth + refined border */
+.project-card {
+  background: rgba(255, 255, 255, 0.045);            /* Richer surface */
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.45);                  /* Soft depth */
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+/* Hover = accent edge + glow ring (matches nav glow energy) */
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(242, 87, 43, 0.50);              /* Accent border */
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(242, 87, 43, 0.22),                /* Glow outline */
+    0 0 18px rgba(242, 87, 43, 0.18);                 /* Soft bloom */
+}
+
+/* Tag pills: calm + readable (no purple text) */
+.tags span {
+  color: rgba(222, 222, 222, 0.80);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  opacity: 0.9;
+}
+
+/* Optional: on hover, give tags a subtle accent hint */
+.project-card:hover .tags span {
+  border-color: rgba(242, 87, 43, 0.22);
+}
+
+/* Mobile: stack cards in one column */
+@media (max-width: 720px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* -------------------------
+   FOOTER — shared site footer
+   ------------------------- */
+
+/* If you use <footer class="site-footer"> this targets it */
+.site-footer {
+  padding: 24px 0 40px;
+  text-align: center;
+  opacity: 0.75;
+  font-size: 14px;
+}
+
+/* Also target plain <footer> (kept from your existing code) */
+footer {
+  text-align: center;
+  margin-top: 40px; /* optional breathing room */
+  color: rgba(222, 222, 222, 0.7);
+}
+
+
+/* ============================================================
+   4) EFFECTS — hover/active/glow/underline (visual polish)
+   ============================================================ */
+
+
+/* Underline “bar” support for nav links
+   Your code already sets .nav-link::after { background: var(--accent); }
+   This adds the missing pieces so it can actually render. */
+.nav-link::after {
+  content: "";                 /* required for pseudo-element to show */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;                /* distance under the text */
+  height: 3px;
+  border-radius: 999px;
+  background: var(--accent);   /* your existing intention */
+  opacity: 0;                  /* hidden by default */
+  transform: scaleX(0.6);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+/* Hover glow (kept from your existing code, now lives in “Effects”) */
+.nav-link:hover {
+  color: #ffffff;
+  text-shadow:
+    0 0 6px rgba(242, 87, 43, 0.6),
+    0 0 14px rgba(242, 87, 43, 0.35);
+}
+
+/* Show underline on hover */
+.nav-link:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Active link glow (kept from your existing code) */
+.nav-link.active {
+  color: #ffffff;
+  text-shadow:
+    0 0 10px rgba(242, 87, 43, 1),
+    0 0 22px rgba(242, 87, 43, 0.6),
+    0 0 36px rgba(242, 87, 43, 0.35);
+}
+
+/* Keep underline visible on active page */
+.nav-link.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+
+/* Project card hover polish (kept from your existing code) */
+.project-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Legacy/extra hover styling you had earlier (kept; may override above)
+   This adds accent border + subtle glow ring. */
+.project-card:hover {
+  border-color: rgba(242, 87, 43, 0.45);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(242, 87, 43, 0.25);
+}
+
+/* NOTE: The blocks below intentionally repeat .project-card selectors.
+   In CSS, later rules win. Keep these only if you prefer the legacy look. */
+/* Legacy/extra base styling you had earlier (kept; may override above) */
+.project-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
