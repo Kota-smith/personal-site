@@ -100,6 +100,10 @@ a:hover {
   gap: 28px;
 }
 
+
+
+
+
 /* Base nav link: removes purple/underline defaults and matches theme */
 .nav-link {
   color: var(--text);
@@ -109,9 +113,43 @@ a:hover {
 }
 
 /* LinkedIn icon behaves like a nav item (aligns SVG nicely) */
+
 .linkedin-inline-icon {
   display: inline-flex;
   align-items: center;
+}
+
+/* -------------------------
+   BACK ARROW — minimal “IKEA-style” back nav for project sub-pages
+   (HTML: <a class="back-arrow" href="projects.html">←</a>)
+   ------------------------- */
+.back-arrow {
+  display: inline-block;                 /* allows margin + transforms */
+  margin-bottom: 18px;                   /* space before the page title */
+
+  font-size: 22px;                       /* visible but still minimal */
+  font-weight: 500;
+
+  color: rgba(222, 222, 222, 0.65);      /* subtle default state */
+  text-decoration: none;                 /* no underline */
+
+  line-height: 1;                        /* tight vertical box */
+
+  transition:
+    color 160ms ease,                    /* smooth color shift */
+    text-shadow 160ms ease,              /* smooth glow */
+    transform 160ms ease;                /* smooth “back” motion */
+}
+
+/* Hover = same orange glow language as your nav */
+.back-arrow:hover {
+  color: #ffffff;                        /* brighter on hover */
+
+  text-shadow:
+    0 0 6px rgba(242, 87, 43, 0.6),       /* orange glow */
+    0 0 12px rgba(242, 87, 43, 0.35);     /* softer bloom */
+
+  transform: translateX(-4px);           /* tiny “go back” nudge */
 }
 
 
@@ -175,6 +213,40 @@ a:hover {
 
   /* Smooth hover transitions */
   transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+/* ============================================================
+   PROJECT MEDIA — keep videos/images inside card boundaries
+   Fixes overflow where media “bleeds” outside rounded cards.
+   ============================================================ */
+
+/* Safety: clip anything inside the card to its rounded corners */
+.project-card {
+  overflow: hidden; /* Clips child media to the card’s rounded border */
+}
+
+/* The clickable thumbnail area should behave like a contained frame */
+.project-thumb {
+  display: block;          /* Makes the link behave like a block container */
+  width: 100%;
+  border-radius: 16px;     /* Match (or slightly exceed) card rounding */
+  overflow: hidden;        /* Clips the video/img inside the thumb */
+}
+
+/* Videos/images should fill the thumb width and never exceed it */
+.project-thumb video,
+.project-thumb img {
+  display: block;          /* Removes inline element gaps */
+  width: 100%;             /* Fit container width */
+  height: auto;            /* Preserve aspect ratio by default */
+  max-width: 100%;         /* Extra safety for overflow */
+}
+
+/* If you use a dedicated class for the video thumbnails */
+.thumb-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* Crops instead of stretching (nice for cards) */
 }
 
 /* Headings / copy inside cards */
