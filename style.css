@@ -83,6 +83,63 @@ a:hover {
   padding: 40px 0; /* comfortable vertical spacing */
 }
 
+/* -------------------------
+   HOMEPAGE HERO — centers the intro content on index.html only
+   ------------------------- */
+
+/* Main hero wrapper: centers content horizontally + vertically */
+.hero {
+  display: flex;              /* Enables flexbox for easy centering */
+  flex-direction: column;     /* Stacks text lines top-to-bottom */
+  align-items: center;        /* Centers items horizontally */
+  justify-content: center;    /* Centers items vertically in the viewport */
+  min-height: 60vh;           /* Gives the hero breathing room on tall screens */
+  text-align: center;         /* Centers all text inside the hero */
+  gap: 14px;                  /* Adds clean spacing between lines */
+}
+
+/* Optional: tighten the hero text block width for nicer line breaks */
+.hero-inner {
+  max-width: 720px;           /* Prevents super-wide text lines */
+  margin: 0 auto;             /* Keeps the block centered */
+}
+
+/* CTA link: subtle orange pill that drives to Projects */
+.hero-cta,
+.cta-pill {
+  display: inline-block;                 /* Allows padding + hover effects */
+  margin-top: 18px;                      /* Space below the hero line */
+  padding: 10px 16px;                    /* Comfortable click target */
+  border-radius: 999px;                  /* Pill shape (clean + modern) */
+
+  color: #ffffff;                        /* Clear contrast */
+  text-decoration: none;                 /* No default underline */
+  font-weight: 600;                      /* Confident but not loud */
+  letter-spacing: 0.2px;                 /* Micro-polish */
+
+  background: rgba(242, 87, 43, 0.16);   /* Soft orange fill */
+  border: 1px solid rgba(242, 87, 43, 0.38); /* Orange outline */
+
+  transition:
+    transform 160ms ease,                /* Tiny lift on hover */
+    background 160ms ease,               /* Surface response */
+    border-color 160ms ease,             /* Accent hint */
+    box-shadow 160ms ease;               /* Soft glow */
+}
+
+/* Hover: premium lift + subtle glow (no gimmicks) */
+.hero-cta:hover,
+.cta-pill:hover {
+  transform: translateY(-2px);           /* Premium “lift” */
+  background: rgba(242, 87, 43, 0.22);   /* Slightly richer fill */
+  border-color: rgba(242, 87, 43, 0.55); /* Stronger edge */
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.50),     /* Soft depth */
+    0 0 0 1px rgba(242, 87, 43, 0.22),   /* Glow outline */
+    0 0 18px rgba(242, 87, 43, 0.18);    /* Soft bloom */
+}
+
+
 /* Header spacing (nav lives here) */
 .site-header {
   padding: 24px 0;
@@ -190,6 +247,13 @@ a:hover {
   flex-direction: column;   /* stack image + text */
   align-items: center;      /* centers horizontally */
   text-align: center;       /* centers text */
+}
+
+/* About page: left-align the page title while keeping the rest centered */
+.about-container .page-title {
+  align-self: flex-start;     /* Pulls only the title to the left edge of the container */
+  text-align: left;           /* Ensures title text is left-aligned */
+  margin-bottom: 28px;        /* Matches the spacing style used on Projects */
 }
 
 /* -------------------------
