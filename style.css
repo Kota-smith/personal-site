@@ -264,7 +264,17 @@ video:focus-visible {
   grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
 }
 
+.feature-photo .project-link {
+  display: inline-block;
+}
+
+.story-photo {
+  width: min(100%, 520px);
+  margin: 24px 0;
+}
+
 .dj-photo,
+.story-photo,
 .project-video {
   width: 100%;
   border-radius: 12px;
