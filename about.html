@@ -1,108 +1,16 @@
-
-  <!-- === example architecture === 
-.site
-  header
-    .container
-      nav   ← same as Home
-  main
-    .container
-      .about-container
-        .about-hero
-        .about-text
-  footer
-    .container
-      p#copyright
-  script
--->
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me | Kota Smith</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta http-equiv="refresh" content="0; url=index.html#about" />
+  <title>About | Kota Smith</title>
 </head>
-
 <body>
-  <!-- === Site Wrapper: keeps layout consistent across pages === -->
-  <div class="site">
-
-    <!-- === Header: contains the primary navigation === -->
-    <header class="site-header">
-      <div class="container">
-        <nav class="site-nav" aria-label="Primary">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="projects.html" class="nav-link">Projects</a>
-          <a href="about.html" class="nav-link active">About</a>
-
-          <!-- LinkedIn: styled like a nav item, but uses an inline SVG icon -->
-          <a href="https://www.linkedin.com/in/kotacsmith"
-             class="nav-link linkedin-inline-icon"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#FF4F00">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 
-              5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 
-              19h-3v-10h3v10zm-1.5-11.268c-.966 
-              0-1.75-.784-1.75-1.75s.784-1.75 
-              1.75-1.75 1.75.784 
-              1.75 1.75-.784 1.75-1.75 
-              1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.868-3.063-1.869 
-              0-2.156 1.46-2.156 
-              2.966v5.701h-3v-10h2.881v1.367h.041c.401-.762 
-              1.379-1.562 2.839-1.562 3.035 
-              0 3.595 1.997 3.595 
-              4.593v5.602z"/>
-            </svg>
-          </a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- === Main: unique page content lives here === -->
-    <main class="site-main">
-      <div class="container">
-<div class="about-container">
-    <!-- === Page Title === -->
-    <h1 class="page-title">👋 About</h1>
-    <!-- === About Hero (Photo + Intro) === -->
-    <section class="about-hero">
-      <figure class="polaroid">
-        <img class="about-img" src="Assets/SelfPhoto.JPG" alt="Portrait of Kota"/>
-        <figcaption class="polaroid-caption"></figcaption>
-      </figure>
-    </section>
-  <div class="about-text">
-    
-    <p>Hey, I’m Kota.</p>
-    <p>I like making things. Sometimes it’s a website, sometimes it’s a coffee recipe, sometimes it’s learning a completely new skill just because it sounded interesting.  I tend to dive into things until they start making sense. That’s probably why I always have a few different projects going.</p>
-    <p>This site is a snapshot of whatever I’m building, learning, or tinkering with at the moment.</p>
-
-  <p>
-   <a class="cta-pill" href="Assets/Dakota_Smith_Resume copy.pdf">Download Resume (PDF)</a> 
-  </p>
-
-
-  </div>
-</div>
-      </div>
-    </main>
-
-  <!-- === Footer: shared across pages === -->
-    <footer class="site-footer">
-      <div class="container">
-        <p id="copyright"></p>
-      </div>
-    </footer>
-
-  </div> <!-- end .site -->
-
-  <!-- === Script: Auto-Updating Copyright === -->
-  <script>
-    const year = new Date().getFullYear();
-    document.getElementById("copyright").innerHTML =
-      `© ${year} Kota Smith — fueled by caffeine & curiosity. All rights reserved.`;
-  </script>
+  <main>
+    <h1>This page has moved.</h1>
+    <p><a href="index.html#about">Go to About</a></p>
+  </main>
 </body>
 </html>

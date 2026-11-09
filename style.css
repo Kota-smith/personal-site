@@ -1,550 +1,355 @@
-/* ============================================================
-   KotaSmith.com — Base CSS (Layered)
-   Goal: keep CSS learnable by organizing into layers:
-   1) Tokens (variables)
-   2) Foundation (reset + layout primitives)
-   3) Components (nav, pages, cards)
-   4) Effects (hover/active/glow)
-   ============================================================ */
-
-
-/* ============================================================
-   1) TOKENS — global variables (change once → whole site updates)
-   ============================================================ */
 :root {
-  --bg: #171717;        /* Page background */
-  --text: #DEDEDE;      /* Default text color */
-  --accent: #F2572B;    /* Accent / glow color */
-
-  --max-width: 980px;   /* Max readable content width */
-  --gutter: 24px;       /* Side padding on small screens */
+  color-scheme: dark;
+  --bg: #171717;
+  --surface: #202020;
+  --text: #f1eeeb;
+  --muted: #bdb7b1;
+  --accent: #ff895e;
+  --border: #3c3937;
+  --max-width: 980px;
+  --gutter: clamp(20px, 5vw, 36px);
 }
 
-
-/* ============================================================
-   2) FOUNDATION — reset + layout primitives (mobile-safe by default)
-   ============================================================ */
-
-/* Basic reset: predictable sizing + removes browser default margins */
-* { box-sizing: border-box; }
-html, body { height: 100%; }
+* {
+  box-sizing: border-box;
+}
 
 body {
-  /* Your original “boring on purpose” defaults */
+  margin: 0;
   background: var(--bg);
   color: var(--text);
-
-  /* Added: remove default browser margin + set readable base font */
-  margin: 0; /* without this, pages look “janky” due to default margins */
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
 }
 
-/* Global media safety: prevents oversized images/videos from spilling outside containers */
-img, video {
-  max-width: 100%; /* responsive by default */
-  height: auto;    /* keeps aspect ratio */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-/* ============================================================
-   LINK DEFAULTS — remove purple + keep links on-brand site-wide
-   Note: browsers often color visited links purple unless we override :visited.
-   ============================================================ */
 a {
-  color: var(--text);          /* Default link color (no purple) */
-  text-decoration: none;       /* Remove default underline */
+  color: inherit;
 }
 
-a:visited {
-  color: var(--text);          /* Keep visited links from turning purple */
+a:focus-visible,
+video:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
 }
 
-/* Optional global hover (nav links already have their own glow rules) */
-a:hover {
-  color: #ffffff;
-}
-
-/* Container: centers content + caps width, while staying fluid on mobile */
 .container {
-  width: min(var(--max-width), calc(100% - (var(--gutter) * 2)));
-  margin: 0 auto;
+  width: min(var(--max-width), calc(100% - 2 * var(--gutter)));
+  margin-inline: auto;
 }
 
-/* Site wrapper: enables sticky-footer layout (header → main → footer) */
 .site {
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
 }
 
-/* Main area: fills remaining height so footer sits at the bottom */
-.site-main {
-  flex: 1;
-  padding: 40px 0; /* comfortable vertical spacing */
-}
-
-/* -------------------------
-   HOMEPAGE HERO — centers the intro content on index.html only
-   ------------------------- */
-
-/* Main hero wrapper: centers content horizontally + vertically */
-.hero {
-  display: flex;              /* Enables flexbox for easy centering */
-  flex-direction: column;     /* Stacks text lines top-to-bottom */
-  align-items: center;        /* Centers items horizontally */
-  justify-content: center;    /* Centers items vertically in the viewport */
-  min-height: 60vh;           /* Gives the hero breathing room on tall screens */
-  text-align: center;         /* Centers all text inside the hero */
-  gap: 14px;                  /* Adds clean spacing between lines */
-}
-
-/* Optional: tighten the hero text block width for nicer line breaks */
-.hero-inner {
-  max-width: 720px;           /* Prevents super-wide text lines */
-  margin: 0 auto;             /* Keeps the block centered */
-}
-
-/* CTA link: subtle orange pill that drives to Projects */
-.hero-cta,
-.cta-pill {
-  display: inline-block;                 /* Allows padding + hover effects */
-  margin-top: 18px;                      /* Space below the hero line */
-  padding: 10px 16px;                    /* Comfortable click target */
-  border-radius: 999px;                  /* Pill shape (clean + modern) */
-
-  color: #ffffff;                        /* Clear contrast */
-  text-decoration: none;                 /* No default underline */
-  font-weight: 600;                      /* Confident but not loud */
-  letter-spacing: 0.2px;                 /* Micro-polish */
-
-  background: rgba(242, 87, 43, 0.16);   /* Soft orange fill */
-  border: 1px solid rgba(242, 87, 43, 0.38); /* Orange outline */
-
-  transition:
-    transform 160ms ease,                /* Tiny lift on hover */
-    background 160ms ease,               /* Surface response */
-    border-color 160ms ease,             /* Accent hint */
-    box-shadow 160ms ease;               /* Soft glow */
-}
-
-/* Hover: premium lift + subtle glow (no gimmicks) */
-.hero-cta:hover,
-.cta-pill:hover {
-  transform: translateY(-2px);           /* Premium “lift” */
-  background: rgba(242, 87, 43, 0.22);   /* Slightly richer fill */
-  border-color: rgba(242, 87, 43, 0.55); /* Stronger edge */
-  box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.50),     /* Soft depth */
-    0 0 0 1px rgba(242, 87, 43, 0.22),   /* Glow outline */
-    0 0 18px rgba(242, 87, 43, 0.18);    /* Soft bloom */
-}
-
-
-/* Header spacing (nav lives here) */
 .site-header {
-  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
 }
 
+.header-row {
+  display: flex;
+  min-height: 70px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 24px;
+}
 
-/* ============================================================
-   3) COMPONENTS — reusable UI pieces (nav, cards, page sections)
-   ============================================================ */
-
-
-/* -------------------------
-   NAV — base link styling + layout
-   ------------------------- */
-
-/* Nav row: centered links with spacing */
 .site-nav {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 28px;
+  flex-wrap: wrap;
+  gap: 4px clamp(14px, 4vw, 28px);
 }
 
-
-
-
-
-/* Base nav link: removes purple/underline defaults and matches theme */
-.nav-link {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 500;
-  position: relative; /* required for underline (::after) */
-}
-
-/* LinkedIn icon behaves like a nav item (aligns SVG nicely) */
-
-.linkedin-inline-icon {
+.wordmark,
+.nav-link,
+.back-link {
   display: inline-flex;
+  min-height: 44px;
   align-items: center;
+  gap: 0.5em;
+  font-weight: 600;
+  text-decoration: none;
 }
 
-/* LinkedIn SVG: force the icon to follow the nav link color (prevents black fill) */
-.linkedin-inline-icon svg {
-  fill: currentColor; /* SVG inherits the <a> element's `color` */
-  display: block;     /* avoids tiny baseline alignment gaps */
+.wordmark {
+  font-weight: 700;
 }
 
-/* Some SVGs apply fill on <path>; force that to inherit too */
-.linkedin-inline-icon svg path {
-  fill: currentColor;
+.nav-link,
+.back-link {
+  color: var(--muted);
 }
 
-/* -------------------------
-   BACK ARROW — minimal “IKEA-style” back nav for project sub-pages
-   (HTML: <a class="back-arrow" href="projects.html">←</a>)
-   ------------------------- */
-.back-arrow {
-  display: inline-block;                 /* allows margin + transforms */
-  margin-bottom: 18px;                   /* space before the page title */
-
-  font-size: 22px;                       /* visible but still minimal */
-  font-weight: 500;
-
-  color: rgba(222, 222, 222, 0.65);      /* subtle default state */
-  text-decoration: none;                 /* no underline */
-
-  line-height: 1;                        /* tight vertical box */
-
-  transition:
-    color 160ms ease,                    /* smooth color shift */
-    text-shadow 160ms ease,              /* smooth glow */
-    transform 160ms ease;                /* smooth “back” motion */
+.wordmark:hover,
+.nav-link:hover,
+.back-link:hover {
+  color: var(--accent);
 }
 
-/* Hover = same orange glow language as your nav */
-.back-arrow:hover {
-  color: #ffffff;                        /* brighter on hover */
-
-  text-shadow:
-    0 0 6px rgba(242, 87, 43, 0.6),       /* orange glow */
-    0 0 12px rgba(242, 87, 43, 0.35);     /* softer bloom */
-
-  transform: translateX(-4px);           /* tiny “go back” nudge */
+.site-main {
+  flex: 1;
 }
 
-
-/* -------------------------
-   ABOUT — page-specific structure
-   ------------------------- */
-
-/* About photo sizing (keeps it responsive) */
-.about-img {
-  width: 500px;        /* try 220–320px if you want smaller */
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px; /* optional: makes it classy */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 30%);
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+  padding: clamp(44px, 8vw, 88px) 0;
+  scroll-margin-top: 20px;
 }
 
-/* Centers About content and keeps layout consistent */
-.about-container {
-  max-width: 900px;         /* readable line-length for bio text */
-  margin: 0 auto;           /* centers the block */
+.hero-portrait {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.page-title,
+.section-title,
+.feature h3,
+.project-card h3 {
+  margin: 0;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.hero h1 {
+  font-size: clamp(2.55rem, 7vw, 5.35rem);
+}
+
+.hero-subtitle {
+  margin: 12px 0 6px;
+  font-size: clamp(1.25rem, 4vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.hero-bio,
+.section-intro {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.cta-pill {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  padding: 9px 16px;
+  border: 1px solid #89503a;
+  border-radius: 999px;
+  background: #382720;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.cta-pill:hover {
+  border-color: var(--accent);
+  background: #4a3025;
+}
+
+.hero-bio {
+  max-width: 52ch;
+}
+
+.hero-links,
+.profile-links {
   display: flex;
-  flex-direction: column;   /* stack image + text */
-  align-items: center;      /* centers horizontally */
-  text-align: center;       /* centers text */
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
 }
 
-/* About page: left-align the page title while keeping the rest centered */
-.about-container .page-title {
-  align-self: flex-start;     /* Pulls only the title to the left edge of the container */
-  text-align: left;           /* Ensures title text is left-aligned */
-  margin-bottom: 28px;        /* Matches the spacing style used on Projects */
+.hero-links {
+  margin-top: 22px;
 }
 
-/* -------------------------
-   DJ PAGE — photo sizing + editorial spacing
-   Ensures story photos feel intentional (not gigantic raw exports)
-   ------------------------- */
-
-/* Centers the DJ story column (text + photos) for a clean editorial read */
-.dj-story {
-  max-width: 760px; /* keeps line length readable */
-  margin: 0 auto;   /* centers the story block */
+.portfolio-section {
+  padding: clamp(38px, 7vw, 64px) 0;
+  border-top: 1px solid var(--border);
+  scroll-margin-top: 20px;
 }
 
-/* DJ photos: responsive + capped size + centered */
-.dj-photo {
-  display: block;          /* removes inline spacing quirks */
-  width: 100%;             /* responsive on mobile */
-  max-width: 520px;        /* prevents huge desktop photos */
-  height: auto;            /* keep aspect ratio */
-
-  margin: 28px auto;       /* space above/below + centered */
-  border-radius: 14px;     /* soft modern rounding */
-
-  /* Subtle depth so images feel like “content cards” */
-  box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.06);
-}
-
-
-/* -------------------------
-   PROJECTS — cards + grid
-   ------------------------- */
-
-/* Projects page wrapper: (kept from your existing code) */
-.projects-page {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 48px 24px;
-}
-
-.projects-title {
-  margin: 0 0 24px 0;
-  font-size: 42px;
+.section-title {
+  font-size: clamp(1.9rem, 5vw, 2.75rem);
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 16px;
+  margin-top: 22px;
 }
 
-/* Project card: clickable tile */
-.project-card {
-  display: block;
-  padding: 22px 22px 18px;
-  border-radius: 18px;
-
-  /* Visual styling (from your existing code) */
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-
-  text-decoration: none; /* removes default link underline */
-  transform: translateY(0);
-
-  /* Smooth hover transitions */
-  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
-}
-
-/* ============================================================
-   PROJECT MEDIA — keep videos/images inside card boundaries
-   Fixes overflow where media “bleeds” outside rounded cards.
-   ============================================================ */
-
-/* Safety: clip anything inside the card to its rounded corners */
-.project-card {
-  overflow: hidden; /* Clips child media to the card’s rounded border */
-}
-
-/* The clickable thumbnail area should behave like a contained frame */
-.project-thumb {
-  display: block;          /* Makes the link behave like a block container */
-  width: 100%;
-  border-radius: 16px;     /* Match (or slightly exceed) card rounding */
-  overflow: hidden;        /* Clips the video/img inside the thumb */
-}
-
-/* Videos/images should fill the thumb width and never exceed it */
-.project-thumb video,
-.project-thumb img {
-  display: block;          /* Removes inline element gaps */
-  width: 100%;             /* Fit container width */
-  height: auto;            /* Preserve aspect ratio by default */
-  max-width: 100%;         /* Extra safety for overflow */
-}
-
-/* If you use a dedicated class for the video thumbnails */
-.thumb-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;       /* Crops instead of stretching (nice for cards) */
-}
-
-/* Headings / copy inside cards */
-.project-card h2 {
-  margin: 0 0 10px;
-  font-size: 22px;
-}
-
-.project-card p {
-  margin: 0 0 14px;
-  line-height: 1.45;
-  opacity: 0.9;
-}
-
-/* Tag pills under each card */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.tags span {
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  opacity: 0.9;
-}
-
-/* ============================================================
-   PROJECT CARDS — polish overrides (brings cards up to nav-level)
-   These rules override earlier card/link defaults without deleting anything.
-   ============================================================ */
-
-/* Ensure the entire card (and visited state) never goes purple */
 .project-card,
-.project-card:visited {
-  color: var(--text);          /* Locks text color inside cards */
+.feature {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
 }
 
-/* Strong, clean card titles */
-.project-card h2 {
-  color: #ffffff;              /* Title contrast */
-  letter-spacing: 0.2px;
-}
-
-/* Slightly softer card body copy */
-.project-card p {
-  color: rgba(222, 222, 222, 0.85);
-  opacity: 1;                  /* Overrides earlier opacity-based dimming */
-}
-
-/* Upgrade card surface: subtle depth + refined border */
 .project-card {
-  background: rgba(255, 255, 255, 0.045);            /* Richer surface */
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  box-shadow:
-    0 10px 28px rgba(0, 0, 0, 0.45);                  /* Soft depth */
-  transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    box-shadow 160ms ease,
-    background 160ms ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(18px, 4vw, 28px);
+  text-decoration: none;
 }
 
-/* Hover = accent edge + glow ring (matches nav glow energy) */
 .project-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(242, 87, 43, 0.50);              /* Accent border */
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow:
-    0 14px 36px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(242, 87, 43, 0.22),                /* Glow outline */
-    0 0 18px rgba(242, 87, 43, 0.18);                 /* Soft bloom */
+  border-color: var(--accent);
+  background: #272321;
 }
 
-/* Tag pills: calm + readable (no purple text) */
-.tags span {
-  color: rgba(222, 222, 222, 0.80);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  opacity: 0.9;
+.project-card h3,
+.feature h3 {
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
 }
 
-/* Optional: on hover, give tags a subtle accent hint */
-.project-card:hover .tags span {
-  border-color: rgba(242, 87, 43, 0.22);
+.project-card p:not(.eyebrow),
+.feature p:not(.eyebrow) {
+  margin: 10px 0 0;
+  color: var(--muted);
 }
 
-/* Mobile: stack cards in one column */
-@media (max-width: 720px) {
-  .projects-grid {
+.project-link {
+  margin-top: auto;
+  padding-top: 20px;
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
+.project-card:hover .project-link {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.feature {
+  display: grid;
+  align-items: center;
+  gap: clamp(18px, 4vw, 36px);
+  margin-top: 16px;
+  padding: clamp(18px, 4vw, 28px);
+  scroll-margin-top: 20px;
+}
+
+.feature-media {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+}
+
+.feature-photo {
+  grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
+}
+
+.dj-photo,
+.project-video {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.dj-photo {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.project-video {
+  background: #0e0e0e;
+}
+
+.feature-media .project-video {
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
+.text-link {
+  padding: 9px 0;
+  color: var(--accent);
+  font-weight: 600;
+  text-underline-offset: 0.2em;
+}
+
+.case-study {
+  padding: 20px 0 56px;
+}
+
+.back-link {
+  margin-bottom: 20px;
+}
+
+.reading-column {
+  max-width: 740px;
+}
+
+.page-title {
+  font-size: clamp(2.2rem, 6vw, 3.65rem);
+}
+
+.reading-column .project-video {
+  margin: 24px 0 34px;
+}
+
+.reading-column section + section {
+  margin-top: 32px;
+}
+
+.reading-column section h2 {
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.reading-column section p,
+.reading-column section ul {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.site-footer {
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 660px) {
+  .projects-grid,
+  .feature {
     grid-template-columns: 1fr;
+  }
+
+  .dj-photo {
+    max-width: 300px;
   }
 }
 
+@media (max-width: 540px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
 
-/* -------------------------
-   FOOTER — shared site footer
-   ------------------------- */
-
-/* If you use <footer class="site-footer"> this targets it */
-.site-footer {
-  padding: 24px 0 40px;
-  text-align: center;
-  opacity: 0.75;
-  font-size: 14px;
-}
-
-/* Also target plain <footer> (kept from your existing code) */
-footer {
-  text-align: center;
-  margin-top: 40px; /* optional breathing room */
-  color: rgba(222, 222, 222, 0.7);
-}
-
-
-/* ============================================================
-   4) EFFECTS — hover/active/glow/underline (visual polish)
-   ============================================================ */
-
-
-/* Underline “bar” support for nav links
-   Your code already sets .nav-link::after { background: var(--accent); }
-   This adds the missing pieces so it can actually render. */
-.nav-link::after {
-  content: "";                 /* required for pseudo-element to show */
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -6px;                /* distance under the text */
-  height: 3px;
-  border-radius: 999px;
-  background: var(--accent);   /* your existing intention */
-  opacity: 0;                  /* hidden by default */
-  transform: scaleX(0.6);
-  transition: opacity 160ms ease, transform 160ms ease;
-}
-
-/* Hover glow (kept from your existing code, now lives in “Effects”) */
-.nav-link:hover {
-  color: #ffffff;
-  text-shadow:
-    0 0 6px rgba(242, 87, 43, 0.6),
-    0 0 14px rgba(242, 87, 43, 0.35);
-}
-
-/* Show underline on hover */
-.nav-link:hover::after {
-  opacity: 1;
-  transform: scaleX(1);
-}
-
-/* Active link glow (kept from your existing code) */
-.nav-link.active {
-  color: #ffffff;
-  text-shadow:
-    0 0 10px rgba(242, 87, 43, 1),
-    0 0 22px rgba(242, 87, 43, 0.6),
-    0 0 36px rgba(242, 87, 43, 0.35);
-}
-
-/* Keep underline visible on active page */
-.nav-link.active::after {
-  opacity: 1;
-  transform: scaleX(1);
-}
-
-
-/* Project card hover polish (kept from your existing code) */
-.project-card:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.18);
-}
-
-/* Legacy/extra hover styling you had earlier (kept; may override above)
-   This adds accent border + subtle glow ring. */
-.project-card:hover {
-  border-color: rgba(242, 87, 43, 0.45);
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(242, 87, 43, 0.25);
-}
-
-/* NOTE: The blocks below intentionally repeat .project-card selectors.
-   In CSS, later rules win. Keep these only if you prefer the legacy look. */
-/* Legacy/extra base styling you had earlier (kept; may override above) */
-.project-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  .hero-portrait {
+    width: min(100%, 240px);
+  }
 }

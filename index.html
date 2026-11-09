@@ -1,87 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XHP2WEMRNV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XHP2WEMRNV');
-</script>
-
-<!-- OtherHead Stuff -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="3D motion, web experiments, and interactive ideas by Kota Smith." />
   <title>Kota Smith | Creative Technologist</title>
-
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="favicon.png">
+  <script src="site.js" defer></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHP2WEMRNV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XHP2WEMRNV');
+  </script>
 </head>
-
-
 <body>
-  <!-- PAGE WRAPPER: holds the whole site -->
   <div class="site">
-
-    <!-- HEADER: top nav lives here -->
     <header class="site-header">
-      <div class="container">
-        <!-- NAV: your main links -->
+      <div class="container header-row">
+        <a class="wordmark" href="#">Kota Smith</a>
         <nav class="site-nav" aria-label="Primary">
-          <a href="index.html" class="nav-link active">Home</a>
-          <a href="projects.html" class="nav-link">Projects</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="https://www.linkedin.com/in/kotacsmith"
-             class="nav-link linkedin-inline-icon"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#FF4F00">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.868-3.063-1.869 0-2.156 1.46-2.156 2.966v5.701h-3v-10h2.881v1.367h.041c.401-.762 1.379-1.562 2.839-1.562 3.035 0 3.595 1.997 3.595 4.593v5.602z"/>
-            </svg>
-          </a>
+          <a href="#work" class="nav-link">Work</a>
+          <a href="#about" class="nav-link">About</a>
         </nav>
       </div>
     </header>
 
-    <!-- MAIN: the primary content for the page -->
     <main class="site-main">
       <div class="container">
-
-        <!-- HERO: your landing intro -->
-        <section class="hero">
-          <h1 class="hero-title">Hey, I’m Kota.</h1>
-          <h2 class="hero-subtitle">I build things I’m curious about.</h2>
-
-          <p class="hero-line">3D motion, web experiments, and interactive ideas in progress.</p>
-          <!-- CTA: primary next step (drives visitors straight to Projects) -->
-          <a class="hero-cta" href="projects.html">Explore projects →</a>
+        <section id="about" class="hero" aria-labelledby="intro-heading">
+          <div class="hero-copy">
+            <p class="eyebrow">Creative technologist</p>
+            <h1 id="intro-heading">Hey, I’m Kota.</h1>
+            <p class="hero-subtitle">I build things I’m curious about.</p>
+            <p class="hero-bio">Sometimes it’s a Blender animation, sometimes it’s a website, and sometimes it’s a coffee recipe. I like diving into new skills until things start making sense.</p>
+            <div class="hero-links">
+              <a class="cta-pill" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
+              <div class="profile-links">
+                <a class="text-link" href="Assets/Dakota_Smith_Resume%20copy.pdf">Résumé (PDF)</a>
+                <a class="text-link" href="https://www.linkedin.com/in/kotacsmith">LinkedIn <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </div>
+          <img class="hero-portrait" src="Assets/SelfPhoto.JPG" width="1343" height="2048"
+               alt="Portrait of Kota" />
         </section>
 
+        <section id="work" class="portfolio-section" aria-labelledby="work-heading">
+          <h2 id="work-heading" class="section-title">Selected work</h2>
+          <p class="section-intro">Blender experiments in motion, lighting, and form.</p>
+
+          <div class="projects-grid">
+            <a class="project-card" href="blender/FluidSimulation.html">
+              <p class="eyebrow">Blender · Simulation</p>
+              <h3>Fluid Physics Simulation</h3>
+              <p>An experiment in making simulated liquid feel natural on screen.</p>
+              <span class="project-link">Read case study <span aria-hidden="true">↗</span></span>
+            </a>
+
+            <a class="project-card" href="blender/SpinningHeadphones.html">
+              <p class="eyebrow">Blender · Product animation</p>
+              <h3>Spinning Headphones</h3>
+              <p>A headphone model I built and lit for a seamless turntable loop.</p>
+              <span class="project-link">Read case study <span aria-hidden="true">↗</span></span>
+            </a>
+          </div>
+
+          <article id="product-reveal" class="feature feature-media">
+            <div>
+              <p class="eyebrow">Blender · Motion</p>
+              <h3>Product Reveal</h3>
+              <p>A short animation built around pacing and the moment the light reveals the product.</p>
+            </div>
+            <video class="project-video" controls playsinline preload="none" aria-label="Product Reveal animation">
+              <source src="Assets/Blender/ProductPackage%20copy.mp4" type="video/mp4" />
+              <a href="Assets/Blender/ProductPackage%20copy.mp4">Download the video</a>
+            </video>
+          </article>
+
+          <article id="djing" class="feature feature-photo">
+            <img class="dj-photo" src="Assets/DJ/YSLA25%20Full%20copy.jpg"
+                 width="1280" height="1920" loading="lazy" decoding="async"
+                 alt="Duh.Kota performing at Catch One in Los Angeles" />
+            <div>
+              <p class="eyebrow">DJing · Duh.Kota</p>
+              <h3>My first live DJ set</h3>
+              <p>A late-night Instagram ad for YourShot sent me to six weeks of DJ classes in Los Angeles. I’d never played to a crowd before. By the end, I was onstage at Catch One with my classmates, hands shaking and trying to stay in the moment.</p>
+            </div>
+          </article>
+        </section>
       </div>
     </main>
 
-    
-
-
-
-    <!-- === Footer: shared across pages === -->
     <footer class="site-footer">
       <div class="container">
-        <p id="copyright"></p>
+        <p>© <span id="copyright-year"></span> Kota Smith — fueled by caffeine &amp; curiosity. All rights reserved.</p>
       </div>
     </footer>
-
-  </div> <!-- end .site -->
-
-  <!-- === Script: Auto-Updating Copyright === -->
-  <script>
-    const year = new Date().getFullYear();
-    document.getElementById("copyright").innerHTML =
-      `© ${year} Kota Smith — fueled by caffeine & curiosity. All rights reserved.`;
-  </script>
+  </div>
 </body>
 </html>
